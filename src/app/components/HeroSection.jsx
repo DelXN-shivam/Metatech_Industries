@@ -40,7 +40,7 @@ const HeroSection = () => {
                     </div>
                     <div className="pt-32 flex flex-row items-center flex-wrap justify-center">
                         <div className="bg-orange-500 text-white font-semibold px-6 py-4 text-lg w-80">
-                            38 Years of Undefeated Success !
+                            38 Years of Undefeated Success 
                         </div>
                         <div className="bg-gray-800 text-white font-semibold px-10 py-4 text-lg w-80">
                             Explore Us !

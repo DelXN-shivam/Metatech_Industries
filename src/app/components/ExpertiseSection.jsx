@@ -11,7 +11,7 @@ const ExpertiseSection = () => {
                     <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div className="bg-white p-6 rounded-lg shadow-lg">
                             <img
-                                src="path-to-your-image.jpg"
+                                src="/images"
                                 alt="Automatic Cutting Machines"
                                 className="w-full h-40 object-cover rounded-lg"
                             />
