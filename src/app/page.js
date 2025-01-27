@@ -5,11 +5,12 @@ import ExpertiseSection from "./components/ExpertiseSection";
 import OurServicesSection from "./components/OurServicesSection";
 import WhatSetsSection from "./components/WhatSetsSection";
 import Footer from "./components/Footer";
+import QueryAndMap from "./components/QueryAndMap";
 
 const Home = () => {
   return (
     <div className="font-sans bg-gray-50 text-gray-900">
-      <Header />
+      {/* <Header /> */}
 
       {/* Hero Section */}
       <HeroSection />
@@ -24,7 +25,7 @@ const Home = () => {
       <OurServicesSection />
 
       {/* Contact Form Section */}
-      
+      <QueryAndMap />
 
       {/* About Us Section + Footer*/}
       <Footer />
