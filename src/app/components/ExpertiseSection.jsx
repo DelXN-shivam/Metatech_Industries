@@ -9,23 +9,23 @@ const ExpertiseSection = () => {
         },
         {
             title: 'Spectro Grinding Machines',
-            image: '/images/spectro_grinding.jpg',
+            image: '/images/image_1.png',
         },
         {
             title: 'Automatic Cutting Machines',
-            image: '/images/automatic_cutting2.jpg',
+            image: '/images/image_1.png',
         },
         {
             title: 'Polishing Machines',
-            image: '/images/polishing.jpg',
+            image: '/images/image_1.png',
         },
         {
             title: 'Repair and Maintenance Services',
-            image: '/images/repair_maintenance.jpg',
+            image: '/images/image_1.png',
         },
         {
             title: 'Hot/Cold Mounting',
-            image: '/images/hot_cold_mounting.jpg',
+            image: '/images/image_1.png',
         },
     ];
 
