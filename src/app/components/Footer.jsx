@@ -11,7 +11,7 @@ const Footer = () => {
             <h2 className="text-2xl md:text-3xl font-bold text-center text-white mb-8">
                     About Us
                 </h2>
-                <div className="container mx-auto flex flex-col lg:flex-row items-start space-y-6 lg:space-y-0 lg:space-x-6 px-4">
+                <div className="container mx-auto flex flex-col-reverse lg:flex-row items-start space-y-6 lg:space-y-0 lg:space-x-6 px-4">
                     {/* Left Section: Company Details */}
                     <div className="w-full lg:w-1/2 bg-gray-900 p-6 rounded-lg shadow-lg">
                         <div className="space-y-4">

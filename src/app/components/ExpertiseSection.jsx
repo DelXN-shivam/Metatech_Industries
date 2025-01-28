@@ -41,7 +41,7 @@ const ExpertiseSection = () => {
                 {expertiseData.map((item, index) => (
                     <div
                         key={index}
-                        className="relative w-full overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300  bg-gray-100 flex flex-col items-center"
+                        className="relative w-full overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 rounded-lg bg-gray-100 flex flex-col items-center"
                     >
                         <Image
                             src={item.image}
@@ -63,16 +63,16 @@ const ExpertiseSection = () => {
             <div className="mt-8 text-center">
                 <a
                     href="#"
-                    className="text-orange-500 font-semibold flex items-center justify-center space-x-2 hover:underline"
+                    className="text-orange-500 font-bold text-lg flex items-center justify-center space-x-2 hover:underline sm:text-base md:text-lg lg:text-xl"
                 >
                     <span>Explore More</span>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        strokeWidth="2"
+                        strokeWidth="3"
                         stroke="currentColor"
-                        className="w-5 h-5"
+                        className="w-7 h-7 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
                     >
                         <path
                             strokeLinecap="round"
@@ -82,6 +82,7 @@ const ExpertiseSection = () => {
                     </svg>
                 </a>
             </div>
+
         </div>
     );
 };
