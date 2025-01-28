@@ -9,59 +9,51 @@ const ExpertiseSection = () => {
         },
         {
             title: 'Spectro Grinding Machines',
-            image: '/images/image_1.png',
+            image: '/images/image_2.jpg',
         },
         {
             title: 'Automatic Cutting Machines',
-            image: '/images/image_1.png',
+            image: '/images/image_3.png',
         },
         {
             title: 'Polishing Machines',
-            image: '/images/image_1.png',
+            image: '/images/image_4.png',
         },
         {
             title: 'Repair and Maintenance Services',
-            image: '/images/image_1.png',
+            image: '/images/image_5.png',
         },
         {
             title: 'Hot/Cold Mounting',
-            image: '/images/image_1.png',
-        },
-        {
-            title: 'Polishing Machines',
-            image: '/images/image_1.png',
-        },
-        {
-            title: 'Repair and Maintenance Services',
-            image: '/images/image_1.png',
-        },
-        {
-            title: 'Hot/Cold Mounting',
-            image: '/images/image_1.png',
+            image: '/images/image_6.png',
         },
     ];
 
     return (
-        <div className="p-8 bg-white">
+        <div className="p-4 sm:p-8 bg-white">
             {/* Title */}
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Explore Our Expertise</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+                Explore Our Expertise
+            </h2>
 
             {/* Expertise Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {expertiseData.map((item, index) => (
                     <div
                         key={index}
-                        className="relative w-full max-w-xs rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+                        className="relative w-full overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300  bg-gray-100 flex flex-col items-center"
                     >
                         <Image
                             src={item.image}
                             alt={item.title}
                             width={400}
                             height={300}
-                            className="w-full h-48 object-cover"
+                            className="w-full h-48 object-cover rounded-t-lg"
                         />
-                        <div className="absolute inset-0  flex items-center justify-center">
-                            <h3 className="text-lg font-semibold text-white text-center px-2">{item.title}</h3>
+                        <div className="w-full p-4 bg-white rounded-b-lg">
+                            <h3 className="text-lg font-semibold text-gray-800 text-center">
+                                {item.title}
+                            </h3>
                         </div>
                     </div>
                 ))}

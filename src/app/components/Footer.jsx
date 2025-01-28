@@ -16,9 +16,9 @@ const Footer = () => {
                     <div className="w-full lg:w-1/2 bg-gray-900 p-6 rounded-lg shadow-lg">
                         <div className="space-y-4">
                             {/* Logo */}
-                            <div className="container bg-white p-4 flex items-center justify-center lg:justify-start">
+                            <div className=" bg-white p-4 flex items-start">
                                 <img
-                                    src="/images/logo.png" // Replace with your logo path
+                                    src="/images/metatech_logo.png" // Replace with your logo path
                                     alt="Company Logo"
                                     className="w-48 h-auto"
                                 />
@@ -46,9 +46,8 @@ const Footer = () => {
                                         <li>Hot/Cold Mounting</li>
                                         <li>Manual/Automatic Polishing</li>
                                         <li>Microscopes</li>
-                                        <li>Hot/Cold Mounting</li>
-                                        <li>Manual/Automatic Polishing</li>
-                                        <li>Microscopes</li>
+                                       
+                                        
                                     </ul>
                                 </div>
                                 <div>
