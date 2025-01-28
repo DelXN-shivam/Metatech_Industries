@@ -9,7 +9,7 @@ const ExpertiseSection = () => {
         },
         {
             title: 'Spectro Grinding Machines',
-            image: '/images/image_2.png',
+            image: '/images/image_2.jpg',
         },
         {
             title: 'Automatic Cutting Machines',
@@ -25,31 +25,33 @@ const ExpertiseSection = () => {
         },
         {
             title: 'Hot/Cold Mounting',
-            image: '/images/image_6.jpg',
+            image: '/images/image_6.png',
         },
     ];
 
     return (
-        <div className="p-8 bg-white">
+        <div className="p-4 sm:p-8 bg-white">
             {/* Title */}
-            <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">Explore Our Expertise</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+                Explore Our Expertise
+            </h2>
 
             {/* Expertise Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {expertiseData.map((item, index) => (
                     <div
                         key={index}
-                        className="relative w-full max-w-xs rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
+                        className="relative w-full overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 rounded-lg bg-gray-100 flex flex-col items-center"
                     >
                         <Image
                             src={item.image}
                             alt={item.title}
                             width={400}
                             height={300}
-                            className="w-full h-48 object-cover"
+                            className="w-full h-48 object-cover rounded-t-lg"
                         />
-                        <div className="absolute inset-0 flex items-end justify-end">
-                            <h3 className="text-lg font-semibold text-white px-2 pb-2 bg-gradient-to-t from-black/60 to-transparent w-full">
+                        <div className="w-full p-4 bg-white rounded-b-lg">
+                            <h3 className="text-lg font-semibold text-gray-800 text-center">
                                 {item.title}
                             </h3>
                         </div>
@@ -57,21 +59,20 @@ const ExpertiseSection = () => {
                 ))}
             </div>
 
-
             {/* Explore More */}
             <div className="mt-8 text-center">
                 <a
                     href="#"
-                    className="text-orange-500 font-semibold flex items-center justify-center space-x-2 hover:underline"
+                    className="text-orange-500 font-bold text-lg flex items-center justify-center space-x-2 hover:underline sm:text-base md:text-lg lg:text-xl"
                 >
                     <span>Explore More</span>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        strokeWidth="2"
+                        strokeWidth="3"
                         stroke="currentColor"
-                        className="w-5 h-5"
+                        className="w-7 h-7 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
                     >
                         <path
                             strokeLinecap="round"
@@ -81,6 +82,7 @@ const ExpertiseSection = () => {
                     </svg>
                 </a>
             </div>
+
         </div>
     );
 };
