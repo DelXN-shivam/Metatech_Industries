@@ -68,7 +68,7 @@ const Services = () => {
                 {services.map((service, index) => (
                     <div
                         key={index}
-                        className="flex items-center justify-center h-72 bg-gray-100">
+                        className="flex items-center justify-center h-80 bg-gray-100">
                         <div className="relative w-64 h-56 bg-white shadow-lg rounded-lg">
                             {/* Icon positioned at the top border */}
                             <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white rounded-full p-4 shadow-md">

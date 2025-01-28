@@ -32,7 +32,7 @@ const ExpertiseSection = () => {
     return (
         <div className="p-4 sm:p-8 bg-white">
             {/* Title */}
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center mt-10">
                 Explore Our Expertise
             </h2>
 

@@ -40,7 +40,7 @@ export default function WhatSetsUsApart() {
                 ))}
             </div>
             {/* Second Row - 2 Centered Features */}
-            <div className="flex gap-10 mb-5 justify-evenly">
+            <div className="flex gap-10 mb-5 justify-evenly pt-10">
                 {features.slice(3, 5).map((feature, index) => (
                     <div key={index} className="flex flex-col items-start">
                         <h3 className="font-bold text-lg">{feature.title}</h3>
