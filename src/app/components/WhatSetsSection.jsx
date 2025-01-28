@@ -32,7 +32,7 @@ export default function WhatSetsUsApart() {
             {/* First Row - 3 Features */}
             <div className="flex gap-10 mb-10 justify-evenly">
                 {features.slice(0, 3).map((feature, index) => (
-                    <div key={index} className="flex flex-col items-start">
+                    <div key={index} className="flex flex-col items-start text-center">
                         <h3 className="font-bold text-lg">{feature.title}</h3>
                         <span className="block w-20 h-1 bg-yellow-400 mt-1 mb-2"></span>
                         <p className="text-gray-600 text-wrap max-w-72">{feature.description}</p>
