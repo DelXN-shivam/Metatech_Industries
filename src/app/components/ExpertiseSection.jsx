@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const ExpertiseSection = () => {
     const expertiseData = [
@@ -29,19 +32,54 @@ const ExpertiseSection = () => {
         },
     ];
 
+    // Animation variants
+    const containerVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, staggerChildren: 0.2 },
+        },
+    };
+
+    const cardVariants = {
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+        hover: { scale: 1.05, boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.2)' },
+    };
+
+    const buttonVariants = {
+        hover: {
+            scale: 1.1,
+            transition: { duration: 0.3 },
+        },
+    };
+
     return (
-        <div className="p-4 sm:p-8 bg-white">
+        <motion.div
+            className="p-4 sm:p-8 bg-white"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+        >
             {/* Title */}
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+            <motion.h2
+                className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+            >
                 Explore Our Expertise
-            </h2>
+            </motion.h2>
 
             {/* Expertise Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {expertiseData.map((item, index) => (
-                    <div
+                    <motion.div
                         key={index}
-                        className="relative w-full overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 rounded-lg bg-gray-100 flex flex-col items-center"
+                        className="relative w-full overflow-hidden shadow-md transition-shadow duration-300 rounded-lg bg-gray-100 flex flex-col items-center"
+                        variants={cardVariants}
+                        whileHover="hover"
                     >
                         <Image
                             src={item.image}
@@ -55,35 +93,40 @@ const ExpertiseSection = () => {
                                 {item.title}
                             </h3>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
 
             {/* Explore More */}
-            <div className="mt-8 text-center">
+            <motion.div
+                className="mt-8 text-center"
+                whileHover="hover"
+                variants={buttonVariants}
+            >
                 <a
                     href="#"
                     className="text-orange-500 font-bold text-lg flex items-center justify-center space-x-2 hover:underline sm:text-base md:text-lg lg:text-xl"
                 >
                     <span>Explore More</span>
-                    <svg
+                    <motion.svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
                         strokeWidth="3"
                         stroke="currentColor"
                         className="w-7 h-7 sm:w-6 sm:h-6 md:w-7 md:h-7 lg:w-8 lg:h-8"
+                        whileHover={{ x: 5 }}
+                        transition={{ duration: 0.3 }}
                     >
                         <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             d="M13.5 4.5l6 6m0 0l-6 6m6-6H3"
                         />
-                    </svg>
+                    </motion.svg>
                 </a>
-            </div>
-
-        </div>
+            </motion.div>
+        </motion.div>
     );
 };
 
