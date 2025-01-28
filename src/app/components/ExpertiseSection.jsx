@@ -27,6 +27,18 @@ const ExpertiseSection = () => {
             title: 'Hot/Cold Mounting',
             image: '/images/image_1.png',
         },
+        {
+            title: 'Polishing Machines',
+            image: '/images/image_1.png',
+        },
+        {
+            title: 'Repair and Maintenance Services',
+            image: '/images/image_1.png',
+        },
+        {
+            title: 'Hot/Cold Mounting',
+            image: '/images/image_1.png',
+        },
     ];
 
     return (
