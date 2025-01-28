@@ -1,5 +1,5 @@
 import React from "react";
-// new services file
+
 const Services = () => {
     const services = [
         {
