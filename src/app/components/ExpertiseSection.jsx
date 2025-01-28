@@ -9,35 +9,23 @@ const ExpertiseSection = () => {
         },
         {
             title: 'Spectro Grinding Machines',
-            image: '/images/image_1.png',
+            image: '/images/image_2.png',
         },
         {
             title: 'Automatic Cutting Machines',
-            image: '/images/image_1.png',
+            image: '/images/image_3.png',
         },
         {
             title: 'Polishing Machines',
-            image: '/images/image_1.png',
+            image: '/images/image_4.png',
         },
         {
             title: 'Repair and Maintenance Services',
-            image: '/images/image_1.png',
+            image: '/images/image_5.png',
         },
         {
             title: 'Hot/Cold Mounting',
-            image: '/images/image_1.png',
-        },
-        {
-            title: 'Polishing Machines',
-            image: '/images/image_1.png',
-        },
-        {
-            title: 'Repair and Maintenance Services',
-            image: '/images/image_1.png',
-        },
-        {
-            title: 'Hot/Cold Mounting',
-            image: '/images/image_1.png',
+            image: '/images/image_6.jpg',
         },
     ];
 
@@ -60,12 +48,15 @@ const ExpertiseSection = () => {
                             height={300}
                             className="w-full h-48 object-cover"
                         />
-                        <div className="absolute inset-0  flex items-center justify-center">
-                            <h3 className="text-lg font-semibold text-white text-center px-2">{item.title}</h3>
+                        <div className="absolute inset-0 flex items-end justify-end">
+                            <h3 className="text-lg font-semibold text-white px-2 pb-2 bg-gradient-to-t from-black/60 to-transparent w-full">
+                                {item.title}
+                            </h3>
                         </div>
                     </div>
                 ))}
             </div>
+
 
             {/* Explore More */}
             <div className="mt-8 text-center">
