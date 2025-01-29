@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import React from 'react';
 import MapPage from './MapService';
 
@@ -17,15 +16,8 @@ const QueryAndMap = () => {
                 {/* Content Wrapper */}
                 <div className="container mx-auto flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-2 px-2">
                     {/* Image Section */}
-                    <div className="w-full lg:w-1/2 flex items-center">
+                    <div className="w-full lg:w-1/2 flex items-center rounded-lg">
                         <div className="relative w-full h-64 md:h-80 lg:h-[380px] rounded-lg">
-                            {/* <Image
-                                src="/images/laptop.jpg"
-                                alt="Machine Background"
-                                layout="fill"
-                                objectFit="cover"
-                                className="rounded-lg shadow-lg"
-                            /> */}
                             <MapPage />
                         </div>
                     </div>
