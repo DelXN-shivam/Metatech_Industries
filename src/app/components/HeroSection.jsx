@@ -88,7 +88,7 @@ const HeroSection = () => {
             </motion.section>
 
             <motion.div
-                className="absolute inset-x-0 -bottom-7 transform -translate-x-1/2 lg:pt-20 flex sm:flex-row items-center justify-center space-y-4 sm:space-y-0 z-10"
+                className="absolute inset-x-0 -bottom-12 transform -translate-x-1/2 lg:pt-20 flex sm:flex-row items-center justify-center space-y-4 sm:space-y-0 z-10"
                 initial="hidden"
                 animate="visible"
                 variants={containerVarients}

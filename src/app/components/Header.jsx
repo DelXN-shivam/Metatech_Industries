@@ -15,7 +15,7 @@ const Header = () => {
                     <nav>
                         <ul className="flex flex-row items-center space-x-1 py-1">
                             <li>
-                                <a href="#" className="hover:text-orange-500 text-base font-semibold hover:bg-slate-100 py-3 px-2">
+                                <a href="/#" className="hover:text-orange-500 text-base font-semibold hover:bg-slate-100 py-3 px-2">
                                     Home
                                 </a>
                             </li>

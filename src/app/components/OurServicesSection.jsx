@@ -11,32 +11,32 @@ const Services = () => {
         {
             icon: "/images/Coffee maker.png",
             title: "Microhardness Tester with Image Analyser Facility",
-            description: "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
+            description: "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
         },
         {
             icon: "/images/Gears set.png",
             title: "Automatic Sectioning",
-            description: "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
+            description: "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
         },
         {
             icon: "/images/Laser.png",
             title: "Manual/Automatic Polishing/Grinding",
-            description: "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
+            description: "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
         },
         {
             icon: "/images/Coffee maker.png",
             title: "Microhardness Tester with Image Analyser Facility",
-            description: "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
+            description: "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
         },
         {
             icon: "/images/Gears set.png",
             title: "Automatic Sectioning",
-            description: "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
+            description: "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
         },
         {
             icon: "/images/Laser.png",
             title: "Manual/Automatic Polishing/Grinding",
-            description: "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
+            description: "Lorem ipsum is simply dummy text of the printing and typesetting industry.",
         },
         {
             icon: "/images/Coffee maker.png", // Replace with your actual icon path
@@ -61,21 +61,21 @@ const Services = () => {
     return (
         <div ref={sectionRef} className="py-10">
             {/* Section Title */}
-            <h2 className="text-2xl md:text-3xl font-bold text-black px-8 text-center mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-black px-8 pb-8 text-center mb-8">
                 Our Services
             </h2>
 
             {/* Services Grid */}
-            <div className="container mx-auto grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4">
+            <div className=" mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-16 px-8 justify-evenly">
                 {services.map((service, index) => (
                     <motion.div
                         key={index}
-                        className="group flex items-center justify-center sm:h-72 sm:pt-4 bg-gray-100 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-blue-100"
+                        className="group flex items-center justify-center bg-gray-100 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl hover:bg-blue-100"
                         initial={{ opacity: 0, y: 30 }}
                         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                         transition={{ duration: 0.5, ease: "easeOut", delay: index * 0.2 }}
                     >
-                        <div className="relative w-64 h-56 sm:h-56 bg-white shadow-md rounded-lg transition-transform duration-300 group-hover:scale-105">
+                        <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md h-64 sm:h-72 md:h-80 bg-white shadow-md rounded-lg transition-transform duration-300 group-hover:scale-105">
                             {/* Icon */}
                             <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 rounded-full p-4 shadow-md transition-colors duration-300 group-hover:bg-orange-500">
                                 <div className="absolute -top-1 left-1/2 transform -translate-x-1/2 w-16 h-16 flex items-center justify-center rounded-full shadow-lg bg-orange-500 transition-colors duration-300 group-hover:bg-white">
@@ -88,7 +88,7 @@ const Services = () => {
                             </div>
 
                             {/* Content */}
-                            <div className="flex flex-col justify-evenly text-center h-full mt-8">
+                            <div className="flex flex-col justify-evenly text-center h-full mt-8 px-4">
                                 <h3 className="text-lg font-bold mb-4 text-gray-800 transition-colors duration-300 group-hover:text-orange-600">
                                     {service.title}
                                 </h3>
@@ -106,6 +106,7 @@ const Services = () => {
 };
 
 export default Services;
+
 
 
 
@@ -151,24 +152,24 @@ export default Services;
 //             description:
 //                 "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
 //         },
-//         {
-//             icon: "/images/Coffee maker.png", // Replace with your actual icon path
-//             title: "Microhardness Tester with Image Analyser Facility",
-//             description:
-//                 "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
-//         },
-//         {
-//             icon: "/images/Gears set.png", // Replace with your actual icon path
-//             title: "Automatic Sectioning",
-//             description:
-//                 "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
-//         },
-//         {
-//             icon: "/images/Laser.png", // Replace with your actual icon path
-//             title: "Manual/Automatic Polishing/Grinding",
-//             description:
-//                 "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
-//         },
+        // {
+        //     icon: "/images/Coffee maker.png", // Replace with your actual icon path
+        //     title: "Microhardness Tester with Image Analyser Facility",
+        //     description:
+        //         "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
+        // },
+        // {
+        //     icon: "/images/Gears set.png", // Replace with your actual icon path
+        //     title: "Automatic Sectioning",
+        //     description:
+        //         "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
+        // },
+        // {
+        //     icon: "/images/Laser.png", // Replace with your actual icon path
+        //     title: "Manual/Automatic Polishing/Grinding",
+        //     description:
+        //         "Lorem ipsum is simply dummy text of the printing and typesetting industry. Dummy text ever since the 1500s.",
+        // },
 //     ];
 
 //     return (
