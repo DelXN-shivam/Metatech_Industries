@@ -27,7 +27,7 @@ const CompanyHeader = () => {
         <div className=" p-4">
             <div className='flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0'>
                 {/* Logo */}
-                <div className="flex-shrink-0">
+                <div className="bg-white p-4 rounded-lg">
                     <Image
                         src="/images/metatech_logo.png"
                         width={200}

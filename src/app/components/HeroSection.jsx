@@ -1,11 +1,14 @@
 'use client';
 
-import React from 'react';
+
 import CompanyHeader from './CompanyHeader';
 import Header from './Header';
 import { motion } from 'framer-motion';
+import React, { useState } from 'react';
 
 const HeroSection = () => {
+
+    const [isReadMoreActive, setIsReadMoreActive] = useState(true);
 
     const containerVarients = {
         hidden: {
@@ -72,13 +75,17 @@ const HeroSection = () => {
                         <div className="space-x-2 sm:space-x-8 pt-10">
                             <a
                                 href="#about"
-                                className="bg-orange-500 hover:bg-orange-600 text-white px-5 py-2 border border-black font-semibold"
+                                className={`${isReadMoreActive ? 'bg-orange-500' : 'bg-gray-500'
+                                    } hover:${isReadMoreActive ? 'bg-orange-600' : 'bg-orange-600'} text-white px-5 py-2 border border-black font-semibold`}
+                                onClick={() => setIsReadMoreActive(true)} // Set 'Read More' active
                             >
                                 Read More
                             </a>
                             <a
                                 href="/aboutus"
-                                className="bg-gray-500 hover:bg-orange-600 text-white px-5 py-2 border border-white font-semibold"
+                                className={`${!isReadMoreActive ? 'bg-orange-500' : 'bg-gray-500'
+                                    } hover:${!isReadMoreActive ? 'bg-orange-600' : 'bg-orange-600'} text-white px-5 py-2 border border-white font-semibold`}
+                                onClick={() => setIsReadMoreActive(false)} // Set 'About Us' active
                             >
                                 About Us
                             </a>
@@ -96,7 +103,7 @@ const HeroSection = () => {
                 <div className="bg-orange-500 text-white font-semibold px-6 py-4 text-lg w-80 text-center shadow-lg">
                     40 Years of Undefeated Success
                 </div>
-                <div  className="bg-gray-500 text-white font-semibold px-10 py-4 text-lg w-80 text-center shadow-lg">
+                <div className="bg-gray-500 text-white font-semibold px-10 py-4 text-lg w-80 text-center shadow-lg">
                     <a href="/aboutus">Explore Us !</a>
                 </div>
             </motion.div>
