@@ -45,7 +45,7 @@ const ExpertiseSection = () => {
     const cardVariants = {
         hidden: { opacity: 0, scale: 0.8 },
         visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-        hover: { scale: 1.05, boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.2)' },
+        hover: { scale: 1.07, boxShadow: '0px 8px 20px rgba(0, 0, 0, 0.2)' },
     };
 
     const buttonVariants = {
@@ -63,7 +63,7 @@ const ExpertiseSection = () => {
             variants={containerVariants}
         >
             {/* Title */}
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+            <motion.h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center mt-10">
                 Explore Our Expertise
             </motion.h2>
 
@@ -72,7 +72,7 @@ const ExpertiseSection = () => {
                 {expertiseData.map((item, index) => (
                     <motion.div
                         key={index}
-                        className="relative w-full overflow-hidden shadow-md transition-shadow duration-300 rounded-lg bg-gray-100 flex flex-col items-center"
+                        className="relative w-full overflow-hidden shadow-md transition-shadow duration-300 rounded-lg bg-gray-100 flex flex-col items-center hover:underline"
                         variants={cardVariants}
                         whileHover="hover"
                     >
@@ -83,7 +83,7 @@ const ExpertiseSection = () => {
                             height={300}
                             className="w-full h-48 object-cover rounded-t-lg"
                         />
-                        <div className="w-full p-4 bg-white rounded-b-lg">
+                        <div className="w-full p-4 bg-white rounded-b-lg hover:bg-slate-100">
                             <h3 className="text-lg font-semibold text-gray-800 text-center">
                                 {item.title}
                             </h3>
