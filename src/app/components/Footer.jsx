@@ -12,9 +12,10 @@ const Footer = () => {
 
     return (
         <footer className={`bg-black text-white py-10 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="container mx-auto flex flex-col lg:flex-row justify-between px-6 lg:px-10">
+            <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4 lg:px-10">
+                
                 {/* Left Section: Logo & Contact */}
-                <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start mb-6 lg:mb-0">
+                <div className="flex flex-col items-center md:items-start">
                     <div className="bg-white p-4 mb-4 rounded-lg transform transition duration-500 hover:scale-105">
                         <img
                             src="/images/metatech_logo.png"
@@ -22,19 +23,19 @@ const Footer = () => {
                             className="w-56"
                         />
                     </div>
-                    <p className="text-sm mb-2 text-center lg:text-left">
+                    <p className="text-sm mb-2 text-center md:text-left">
                         476, Narayan Peth, Cosmos Bank Building, <br />
                         Off Laxmi Road, Pune - 411 030.
                     </p>
-                    <p className="text-sm mb-2 text-center lg:text-left">
+                    <p className="text-sm mb-2 text-center md:text-left">
                         Phone: <a href="tel:+919422526706" className="text-white font-semibold hover:text-blue-400 transition duration-300">+91 94225 26706</a>
                     </p>
-                    <p className="text-sm mb-4 text-center lg:text-left">
+                    <p className="text-sm mb-4 text-center md:text-left">
                         Email: <a href="mailto:sales@metatechind.com" className="text-white font-semibold hover:text-blue-400 transition duration-300">sales@metatechind.com</a>
                     </p>
 
                     {/* Social Media Icons */}
-                    <div className="flex justify-center lg:justify-start space-x-3">
+                    <div className="flex justify-center md:justify-start space-x-3">
                         {[Facebook, Instagram, LinkedIn, YouTube].map((Icon, index) => (
                             <a
                                 key={index}
@@ -48,24 +49,26 @@ const Footer = () => {
                 </div>
 
                 {/* Middle Section: Products */}
-                <div className="w-full lg:w-1/3 mb-6 lg:mb-0">
+                <div className="flex flex-col items-center md:items-start">
                     <h3 className="text-lg font-bold mb-2">Products</h3>
                     <ul className="space-y-2">
                         {["Abrasive Sectioning", "Diamond Sectioning", "Hot/Cold Mounting", "Manual/Automatic Polishing", "Microscopes"].map((item, index) => (
-                            <li key={index} className="hover:text-blue-400 transition duration-300 cursor-pointer transform hover:translate-x-1">
-                                {item}
+                            <li key={index}>
+                                <span className="cursor-pointer hover:text-blue-400 transition duration-300">{item}</span>
                             </li>
                         ))}
                     </ul>
                 </div>
 
                 {/* Right Section: Quick Links */}
-                <div className="w-full lg:w-1/3">
+                <div className="flex flex-col items-center md:items-start">
                     <h3 className="text-lg font-bold mb-2">Quick Links</h3>
                     <ul className="space-y-2">
                         {["Home", "Products", "Lab Service", "Course", "About", "Contact"].map((link, index) => (
-                            <li key={index} className="hover:text-blue-400 transition duration-300 cursor-pointer transform hover:translate-x-1">
-                                <a href={`#${link.toLowerCase().replace(" ", "-")}`}>{link}</a>
+                            <li key={index}>
+                                <a href={`#${link.toLowerCase().replace(" ", "-")}`} className="cursor-pointer hover:text-blue-400 transition duration-300">
+                                    {link}
+                                </a>
                             </li>
                         ))}
                     </ul>

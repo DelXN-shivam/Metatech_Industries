@@ -96,7 +96,7 @@ const HeroSection = () => {
                 <div className="bg-orange-500 text-white font-semibold px-6 py-4 text-lg w-80 text-center shadow-lg">
                     38 Years of Undefeated Success
                 </div>
-                <div className="bg-gray-800 text-white font-semibold px-10 py-4 text-lg w-80 text-center shadow-lg">
+                <div className="bg-gray-500 text-white font-semibold px-10 py-4 text-lg w-80 text-center shadow-lg">
                     Explore Us !
                 </div>
             </motion.div>

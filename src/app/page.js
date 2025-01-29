@@ -6,6 +6,8 @@ import OurServicesSection from "./components/OurServicesSection";
 import WhatSetsSection from "./components/WhatSetsSection";
 import Footer from "./components/Footer";
 import QueryAndMap from "./components/QueryAndMap";
+import TeamAndBlog from "./aboutus/page";
+import AboutUsPage from "./aboutus/page";
 
 const Home = () => {
   return (
@@ -13,22 +15,23 @@ const Home = () => {
       {/* <Header /> */}
 
       {/* Hero Section */}
-      <HeroSection />
+      {/* <HeroSection /> */}
 
       {/* Expertise Section */}
-      <ExpertiseSection />
+      {/* <ExpertiseSection /> */}
 
       {/* What Sets Us Apart Section */}
-      <WhatSetsSection />
+      {/* <WhatSetsSection /> */}
 
       {/* Services Section */}
-      <OurServicesSection />
+      {/* <OurServicesSection /> */}
 
       {/* Contact Form Section */}
-      <QueryAndMap />
+      {/* <QueryAndMap /> */}
 
       {/* About Us Section + Footer*/}
-      <Footer />
+      {/* <Footer /> */}
+      <AboutUsPage />
     </div>
   );
 };
