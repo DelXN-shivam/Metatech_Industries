@@ -2,115 +2,247 @@
 
 import React from 'react';
 import Image from 'next/image';
-
+import CompanyHeader from '../components/CompanyHeader';
+import Header from '../components/Header';
+import { motion } from 'framer-motion';
+import Footer from '../components/Footer';
 
 const AboutUsPage = () => {
+
+    // Variants for general section animation on load
+    const containerVarients = {
+        hidden: {
+            opacity: 0,
+            scale: 0.8
+        },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                duration: 1.2, ease: 'easeInOut',
+            }
+        },
+    };
+
+    // Variants for buttons hover animation
+    const buttonVarients = {
+        hover: {
+            scale: 1.1,
+            transition: {
+                duration: 0.3,
+            }
+        },
+    };
+
+    // Scroll animation variant for each section
+    const scrollVariant = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: 'easeOut' } },
+    };
+
     return (
         <div className="bg-gray-50">
             {/* Hero Section */}
-            <section className="bg-purple-900 text-white py-16 text-center">
-                <h1 className="text-3xl md:text-5xl font-bold">About Us</h1>
-                <p className="text-lg md:text-xl mt-4 px-6 max-w-3xl mx-auto">
-                    InvesGaurai is a top service platform that empowers investors to reach their financial goals efficiently.
-                </p>
-            </section>
+            <motion.section
+                className="relative bg-cover bg-center h-screen"
+                style={{
+                    backgroundImage: "url('/images/about_bg.jpg')"
+                }}
+                initial="hidden"
+                animate="visible"
+                variants={containerVarients}
+            >
+                {/* Background Overlay */}
+                <div className="absolute inset-0 bg-black opacity-50"></div>
+
+                {/* Content */}
+                <div className="max-w-screen-xl mx-auto text-center items-center justify-center text-white relative px-6 md:px-8 lg:px-12 py-1">
+                    <CompanyHeader />
+                    <Header />
+
+                    {/* Main Heading motion.div */}
+                    <div className="flex flex-col justify-center items-center pt-20 text-center">
+                        <motion.h1
+                            className="text-3xl md:text-5xl font-bold leading-tight"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.2, duration: 1 }}
+                        >
+                            About Us
+                        </motion.h1>
+                        <motion.p
+                            className="text-lg md:text-xl mt-4 px-6 max-w-3xl mx-auto"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.3, duration: 1 }}
+                        >
+                            At Metatech, we’re not just a provider of Metallography solutions – we’re your trusted partner in materials
+                            analysis and innovation. With over 38 years of industry experience, we’ve honed our expertise to offer a comprehensive
+                            suite of services and facilities that empower our clients to achieve their goals with confidence.
+                        </motion.p>
+                    </div>
+                </div>
+            </motion.section>
 
             {/* Mission, Vision, Core Values Section */}
-            <section className="container mx-auto py-16 px-4">
+            <motion.section
+                className="container mx-auto py-16 px-4"
+                initial="hidden"
+                animate="visible"
+                variants={scrollVariant}
+            >
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                     {/* Mission */}
-                    <div className="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 className="text-2xl font-bold text-purple-900">MISSION</h3>
+                    <motion.div
+                        className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl cursor-pointer"
+                        variants={scrollVariant}
+                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        <h3 className="text-2xl font-bold text-orange-500">MISSION</h3>
                         <p className="mt-4 text-gray-600">
-                            To guide investors in reaching financial goals with peace of mind.
+                            At Metatech, our mission is to provide cutting-edge metallography solutions and expert materials analysis,
+                            empowering our clients to make informed decisions and achieve their innovation goals with confidence.
                         </p>
-                    </div>
+                    </motion.div>
 
                     {/* Vision */}
-                    <div className="bg-purple-900 text-white p-6 rounded-lg shadow-lg">
+                    <motion.div
+                        className="bg-orange-500 text-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl cursor-pointer"
+                        variants={scrollVariant}
+                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.05 }}
+                    >
                         <h3 className="text-2xl font-bold">VISION</h3>
                         <p className="mt-4">
-                            To be a leading financial advisory firm through a knowledge-driven approach.
+                            Our vision is to be the leading global partner in materials analysis and metallography, delivering innovative
+                            solutions that drive success across industries for over 40 years.
                         </p>
-                    </div>
+                    </motion.div>
 
                     {/* Core Values */}
-                    <div className="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 className="text-2xl font-bold text-purple-900">CORE VALUES</h3>
+                    <motion.div
+                        className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl cursor-pointer"
+                        variants={scrollVariant}
+                        whileTap={{ scale: 0.95 }}
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        <h3 className="text-2xl font-bold text-orange-500">CORE VALUES</h3>
                         <p className="mt-4 text-gray-600">
-                            1. Knowledge <br /> 2. Integrity <br /> 3. Service <br /> 4. Trust <br /> 5. Innovation
+                            1. Innovation <br /> 2. Integrity <br /> 3. Service <br /> 4. Trust <br />
                         </p>
-                    </div>
+                    </motion.div>
                 </div>
-            </section>
+            </motion.section>
+
 
             {/* Our Experience Section */}
-            <section className="container mx-auto py-16 px-4 flex flex-col md:flex-row items-center">
+            <motion.section
+                className="container mx-auto px-4 flex flex-col md:flex-row items-center"
+                initial="hidden"
+                animate="visible"
+                variants={scrollVariant}
+            >
                 <div className="md:w-1/2 text-left">
-                    <h2 className="text-3xl font-bold text-gray-900">Our Experience</h2>
-                    <h3 className="text-2xl font-bold text-black mt-2">
+                    <motion.h2
+                        className="text-3xl font-bold text-gray-900"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.2, duration: 1 }}
+                    >
+                        Our Experience
+                    </motion.h2>
+                    <motion.h3
+                        className="text-2xl font-bold text-black mt-2"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.3, duration: 1 }}
+                    >
                         Trusted Globally, Recognized Locally
-                    </h3>
-                    <p className="mt-4 text-gray-700 leading-relaxed">
-                        With a proven track record of serving multinationals, research institutes,
-                        defense and aerospace laboratories, educational institutions, and clients across the globe,
-                        we’re dedicated to delivering reliable results and exceeding expectations.
+                    </motion.h3>
+                    <motion.p
+                        className="mt-4 text-gray-700 leading-relaxed"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.4, duration: 1 }}
+                    >
+                        With a proven track record of serving multinationals, research institutes, defense and aerospace laboratories,
+                        educational institutions, and clients across the globe, we’re dedicated to delivering reliable results and exceeding expectations.
                         Trust Metatech to be your partner in pushing the boundaries of materials analysis and achieving success in your endeavors.
-                    </p>
+                    </motion.p>
                 </div>
                 <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
-                    <Image src="/images/image_1.png" alt="38 Years in Service" width={400} height={300} />
+                    <Image src="/images/40_Years_Image.png" alt="40 Years in Service" width={500} height={400} />
                 </div>
-            </section>
+            </motion.section>
 
-            {/* Read Our Blog Section */}
-            <section className="container mx-auto py-16 text-center">
-                <h2 className="text-3xl font-bold text-purple-900">Read Our Blog</h2>
+            {/* Our Services Section */}
+            <motion.section
+                className="container mx-auto pb-10 text-center"
+                initial="hidden"
+                animate="visible"
+                variants={scrollVariant}
+            >
+                <motion.h2
+                    className="text-3xl font-bold text-orange-500"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.2, duration: 1 }}
+                >
+                    Our Services
+                </motion.h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-                    {/* Blog Post 1 */}
-                    <div className="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 className="text-lg font-bold text-orange-500">Sensex is at an all-time high</h3>
-                        <p className="text-gray-600 mt-2">What investors should do now?</p>
+                    {/* Service 1 */}
+                    <motion.div
+                        className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl"
+                        whileHover="hover"
+                        variants={buttonVarients}
+                    >
+                        <h3 className="text-lg font-bold text-orange-500">Metallography Analysis</h3>
+                        <p className="text-gray-600 mt-2">Detailed analysis of material properties through advanced metallography techniques.</p>
                         <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">
-                            Read More
+                            Learn More
                         </button>
-                    </div>
+                    </motion.div>
 
-                    {/* Blog Post 2 */}
-                    <div className="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 className="text-lg font-bold text-orange-500">Lessons from 2016</h3>
-                        <p className="text-gray-600 mt-2">Key investment strategies learned.</p>
+                    {/* Service 2 */}
+                    <motion.div
+                        className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl"
+                        whileHover="hover"
+                        variants={buttonVarients}
+                    >
+                        <h3 className="text-lg font-bold text-orange-500">Materials Testing</h3>
+                        <p className="text-gray-600 mt-2">Comprehensive testing services to assess material quality and performance under various conditions.</p>
                         <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">
-                            Read More
+                            Learn More
                         </button>
-                    </div>
+                    </motion.div>
 
-                    {/* Blog Post 3 */}
-                    <div className="bg-white p-6 rounded-lg shadow-lg">
-                        <h3 className="text-lg font-bold text-orange-500">Best Performing Mutual Funds</h3>
-                        <p className="text-gray-600 mt-2">Should you invest only in them?</p>
+                    {/* Service 3 */}
+                    <motion.div
+                        className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl"
+                        whileHover="hover"
+                        variants={buttonVarients}
+                    >
+                        <h3 className="text-lg font-bold text-orange-500">Consulting & Support</h3>
+                        <p className="text-gray-600 mt-2">Expert consulting services to guide your projects and ensure optimal material choices.</p>
                         <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">
-                            Read More
+                            Learn More
                         </button>
-                    </div>
+                    </motion.div>
                 </div>
 
-                <button className="bg-orange-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-600 transition mt-8">
-                    View All Posts
-                </button>
-            </section>
+                <motion.h1
+                    className="text-orange-500 text-lg font-bold hover:text-xl mt-8"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5, duration: 1 }}
+                >
+                    View All Services
+                </motion.h1>
+            </motion.section>
 
-            {/* Contact CTA */}
-            <section className="bg-purple-900 text-white py-16 text-center">
-                <h2 className="text-2xl font-bold">Get in Touch for Better Understanding</h2>
-                <input type="text" placeholder="Enter your email" className="mt-4 px-4 py-2 rounded-lg text-black" />
-                <button className="ml-4 bg-orange-500 px-6 py-2 rounded-lg hover:bg-orange-600 transition">
-                    Subscribe
-                </button>
-            </section>
-
-            
-            
+            <Footer />
         </div>
     );
 };
