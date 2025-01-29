@@ -16,8 +16,8 @@ const CompanyHeader = () => {
 
                 {/* Texts */}
                 <div className="flex flex-col items-start">
-                    <span className="text-sm md:text-base font-medium text-white">{text1}</span>
-                    <span className="text-base md:text-lg font-semibold text-white">{text2}</span>
+                    <span className="text-xs md:text-base font-medium text-white">{text1}</span>
+                    <span className="text-sm md:text-lg font-semibold text-white">{text2}</span>
                 </div>
             </div>
         );

@@ -77,7 +77,7 @@ export default function WhatSetsUsApart() {
             </div>
 
             {/* Second Row - 2 Centered Features */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
+            <div className="flex gap-10 mb-5 justify-evenly">
                 {features.slice(3, 5).map((feature, index) => (
                     <motion.div
                         key={index}
