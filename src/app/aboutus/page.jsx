@@ -46,7 +46,7 @@ const AboutUsPage = () => {
             <motion.section
                 className="relative bg-cover bg-center h-screen"
                 style={{
-                    backgroundImage: "url('/images/about_bg.jpg')"
+                    backgroundImage: "url('/images/aboutus_bg.jpg')"
                 }}
                 initial="hidden"
                 animate="visible"
@@ -61,9 +61,9 @@ const AboutUsPage = () => {
                     <Header />
 
                     {/* Main Heading motion.div */}
-                    <div className="flex flex-col justify-center items-center pt-20 text-center">
+                    <div className="flex flex-col justify-center items-center pt-12 text-center">
                         <motion.h1
-                            className="text-3xl md:text-5xl font-bold leading-tight"
+                            className="text-3xl md:text-5xl font-bold leading-tight text-orange-500"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.2, duration: 1 }}
@@ -86,7 +86,7 @@ const AboutUsPage = () => {
 
             {/* Mission, Vision, Core Values Section */}
             <motion.section
-                className="container mx-auto py-16 px-4"
+                className="container mx-auto py-16 px-16"
                 initial="hidden"
                 animate="visible"
                 variants={scrollVariant}
@@ -134,11 +134,9 @@ const AboutUsPage = () => {
                     </motion.div>
                 </div>
             </motion.section>
-
-
             {/* Our Experience Section */}
             <motion.section
-                className="container mx-auto px-4 flex flex-col md:flex-row items-center"
+                className="container mx-auto px-16 flex flex-col md:flex-row items-center"
                 initial="hidden"
                 animate="visible"
                 variants={scrollVariant}
@@ -191,7 +189,7 @@ const AboutUsPage = () => {
                 >
                     Our Services
                 </motion.h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 px-16">
                     {/* Service 1 */}
                     <motion.div
                         className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl"
@@ -233,7 +231,7 @@ const AboutUsPage = () => {
                 </div>
 
                 <motion.h1
-                    className="text-orange-500 text-lg font-bold hover:text-xl mt-8"
+                    className="text-orange-500 text-lg font-bold hover:text-xl mt-8 text-wrap"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 1 }}

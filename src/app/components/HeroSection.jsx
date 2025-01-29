@@ -77,7 +77,7 @@ const HeroSection = () => {
                                 Read More
                             </a>
                             <a
-                                href="#about"
+                                href="/aboutus"
                                 className="bg-gray-500 hover:bg-orange-600 text-white px-5 py-2 border border-white font-semibold"
                             >
                                 About Us
@@ -88,16 +88,16 @@ const HeroSection = () => {
             </motion.section>
 
             <motion.div
-                className="absolute inset-x-0 -bottom-7 transform -translate-x-1/2 lg:pt-20 flex sm:flex-row items-center justify-center space-y-4 sm:space-y-0 z-10"
+                className="absolute inset-x-0 -bottom-12 transform -translate-x-1/2 lg:pt-20 flex sm:flex-row items-center justify-center space-y-4 sm:space-y-0 z-10"
                 initial="hidden"
                 animate="visible"
                 variants={containerVarients}
             >
                 <div className="bg-orange-500 text-white font-semibold px-6 py-4 text-lg w-80 text-center shadow-lg">
-                    38 Years of Undefeated Success
+                    40 Years of Undefeated Success
                 </div>
-                <div className="bg-gray-500 text-white font-semibold px-10 py-4 text-lg w-80 text-center shadow-lg">
-                    Explore Us !
+                <div  className="bg-gray-500 text-white font-semibold px-10 py-4 text-lg w-80 text-center shadow-lg">
+                    <a href="/aboutus">Explore Us !</a>
                 </div>
             </motion.div>
         </div>

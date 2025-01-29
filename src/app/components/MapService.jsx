@@ -18,8 +18,8 @@ const MapPage = () => {
       script.onload = () => {
         const tt = window.tt; // Access TomTom SDK from window object
 
-        const latitude = 18.514443;
-        const longitude = 73.852251;
+        const latitude = 18.5146578;
+        const longitude = 73.8520407;
 
         const isMobileOrTablet = () => {
           return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);

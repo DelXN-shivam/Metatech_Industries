@@ -15,23 +15,22 @@ const Home = () => {
       {/* <Header /> */}
 
       {/* Hero Section */}
-      {/* <HeroSection /> */}
+      <HeroSection />
 
       {/* Expertise Section */}
-      {/* <ExpertiseSection /> */}
+      <ExpertiseSection />
 
       {/* What Sets Us Apart Section */}
-      {/* <WhatSetsSection /> */}
+      <WhatSetsSection />
 
       {/* Services Section */}
-      {/* <OurServicesSection /> */}
+      <OurServicesSection />
 
       {/* Contact Form Section */}
-      {/* <QueryAndMap /> */}
+      <QueryAndMap />
 
       {/* About Us Section + Footer*/}
-      {/* <Footer /> */}
-      <AboutUsPage />
+      <Footer />
     </div>
   );
 };
