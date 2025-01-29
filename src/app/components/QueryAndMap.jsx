@@ -1,85 +1,100 @@
 'use client';
 
-import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from "react";
 
+const MapPage = () => {
+  const [isClient, setIsClient] = useState(false); // Track client-side rendering
 
-const QueryAndMap = () => {
-    return (
-        <div>
-            <section className="py-10 bg-gray-50">
-                {/* Section Title */}
-                <h2 className="text-2xl md:text-3xl  font-bold text-center text-black mb-6">
-                    Ask a Query
-                </h2>
+  useEffect(() => {
+    setIsClient(true); // Once the component is mounted, set it to true
+  }, []);
 
-                {/* Content Wrapper */}
-                <div className="container mx-auto flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-2 px-2">
-                    {/* Image Section */}
-                    <div className="w-full lg:w-1/2 flex items-center">
-                        <div className="relative w-full h-64 md:h-80 lg:h-[380px]">
-                            <Image
-                                src="/images/laptop.jpg"
-                                alt="Machine Background"
-                                layout="fill"
-                                objectFit="cover"
-                                className="rounded-lg shadow-lg"
-                            />
-                        </div>
-                    </div>
+  useEffect(() => {
+    if (isClient) {
+      // Dynamically add the script tag for TomTom SDK only on the client side
+      const script = document.createElement("script");
+      script.src = "https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.1/maps/maps-web.min.js";
+      script.async = true;
+      script.onload = () => {
+        const tt = window.tt; // Access TomTom SDK from window object
 
-                    {/* Form Section */}
-                    <div className="border w-full lg:w-1/2 bg-white p-6 rounded-lg shadow-lg flex flex-col items-center lg:items-start">
-                        <div className="w-full">
-                            <h2 className="text-2xl font-semibold mb-6 text-center lg:text-left">
-                                Request for a Machine
-                            </h2>
-                            <form>
-                                {/* Input Fields */}
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                    <input
-                                        type="text"
-                                        placeholder="Your Name"
-                                        className="border border-orange-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                                    />
-                                    <input
-                                        type="email"
-                                        placeholder="Email"
-                                        className="border border-orange-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                                    />
-                                    <input
-                                        type="text"
-                                        placeholder="Phone"
-                                        className="border border-orange-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                                    />
-                                    <input
-                                        type="text"
-                                        placeholder="Product"
-                                        className="border border-orange-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                                    />
-                                </div>
+        const latitude = 18.4443;
+        const longitude = 73.8265;
 
-                                {/* Textarea */}
-                                <textarea
-                                    placeholder="Describe the product"
-                                    className="border border-orange-300 rounded-md p-2 mt-4 w-full h-24 focus:outline-none focus:ring-2 focus:ring-orange-500"
-                                ></textarea>
+        const isMobileOrTablet = () => {
+          return /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        };
 
-                                {/* Submit Button */}
-                                <button
-                                    type="submit"
-                                    className="bg-orange-500 text-white font-semibold py-2 px-6 rounded-md mt-4 w-full hover:bg-orange-500"
-                                >
-                                    Send Message
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+        // Initialize the map
+        const map = tt.map({
+          key: "S8mRLDvFcGV8ktp2Wz6gffmG6JjULKQ3", // Your API key
+          container: "map",
+          center: [longitude, latitude], // Set the center to the given coordinates
+          zoom: 14,
+          dragPan: !isMobileOrTablet(),
+        });
 
-            </section>
-        </div>
-    );
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+
+        // Reverse Geocoding to get the location name based on the latitude and longitude
+        const reverseGeocode = async () => {
+          const reverseGeocodeUrl = `https://api.tomtom.com/search/2/reverseGeocode/${latitude},${longitude}.json?key=S8mRLDvFcGV8ktp2Wz6gffmG6JjULKQ3`;
+
+          try {
+            const response = await fetch(reverseGeocodeUrl);
+            const data = await response.json();
+            if (data && data.addresses && data.addresses.length > 0) {
+              const address = data.addresses[0].address.freeformAddress;
+              console.log("Location:", address);
+              // You can add a marker or display the address on the map
+              const popup = new tt.Popup().setHTML(address);
+              new tt.Marker()
+                .setLngLat([longitude, latitude])
+                .setPopup(popup) // Add popup to the marker
+                .addTo(map);
+            }
+          } catch (error) {
+            console.error("Error fetching location:", error);
+          }
+        };
+
+        reverseGeocode();
+      };
+
+      document.body.appendChild(script);
+
+      // Cleanup the script on component unmount
+      return () => {
+        document.body.removeChild(script);
+      };
+    }
+  }, [isClient]);
+
+  if (!isClient) {
+    return null; // Prevent rendering map on the server side
+  }
+
+  return (
+    <div>
+      <div>
+        <title>Maps SDK for Web - Vector Map</title>
+        <link
+          rel="stylesheet"
+          href="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.25.1/maps/maps.css"
+        />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+        />
+      </div>
+      <div
+        id="map"
+        className="map"
+        style={{ height: "100vh", width: "100%" }}
+      ></div>
+    </div>
+  );
 };
 
-export default QueryAndMap
+export default MapPage;

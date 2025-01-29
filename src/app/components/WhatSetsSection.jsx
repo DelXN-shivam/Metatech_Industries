@@ -1,54 +1,96 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 export default function WhatSetsUsApart() {
     const features = [
         {
-            title: "38+ Years of Expertise",
-            description: "Decades of Mastery in Metallography",
+            title: '38+ Years of Expertise',
+            description: 'Decades of Mastery in Metallography',
         },
         {
-            title: "State-of-the-Art Equipment",
-            description: "Equipped with Cutting-Edge Technology",
+            title: 'State-of-the-Art Equipment',
+            description: 'Equipped with Cutting-Edge Technology',
         },
         {
-            title: "Customizable Solutions",
-            description: "Tailored to Meet Your Unique Needs",
+            title: 'Customizable Solutions',
+            description: 'Tailored to Meet Your Unique Needs',
         },
         {
-            title: "Excellent After-Sales Support",
-            description: "Unmatched After-Sales Support You Can Rely On",
+            title: 'Excellent After-Sales Support',
+            description: 'Unmatched After-Sales Support You Can Rely On',
         },
         {
-            title: "Trusted by Leading Brands",
-            description: "Collaborating with Industry Leaders to Drive Excellence and Innovation",
+            title: 'Trusted by Leading Brands',
+            description:
+                'Collaborating with Industry Leaders to Drive Excellence and Innovation',
         },
     ];
 
+    // Animation Variants
+    const containerVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6, staggerChildren: 0.2 },
+        },
+    };
+
+    const featureVariants = {
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
+        hover: { scale: 1.05, transition: { duration: 0.3 } },
+    };
+
     return (
-        <div className="container mx-auto px-4 py-10">
+        <motion.div
+            className="container mx-auto px-4 py-10"
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+        >
             {/* Title */}
-            <h2 className="text-2xl md:text-3xl font-bold text-black text-center mb-14">
+            <motion.h2
+                className="text-2xl md:text-3xl font-bold text-black text-center mb-14"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+            >
                 What Sets Us Apart
-            </h2>
+            </motion.h2>
 
             {/* First Row - 3 Features */}
-            <div className="flex gap-10 mb-10 justify-evenly">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-10">
                 {features.slice(0, 3).map((feature, index) => (
-                    <div key={index} className="flex flex-col items-start text-center">
-                        <h3 className="font-bold text-lg">{feature.title}</h3>
+                    <motion.div
+                        key={index}
+                        className="flex flex-col items-center text-center p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                        variants={featureVariants}
+                        whileHover="hover"
+                    >
+                        <h3 className="font-bold text-lg text-gray-800">{feature.title}</h3>
                         <span className="block w-20 h-1 bg-yellow-400 mt-1 mb-2"></span>
-                        <p className="text-gray-600 text-wrap max-w-72">{feature.description}</p>
-                    </div>
+                        <p className="text-gray-600 max-w-[200px]">{feature.description}</p>
+                    </motion.div>
                 ))}
             </div>
+
             {/* Second Row - 2 Centered Features */}
-            <div className="flex gap-10 mb-5 justify-evenly">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                 {features.slice(3, 5).map((feature, index) => (
-                    <div key={index} className="flex flex-col items-start">
-                        <h3 className="font-bold text-lg">{feature.title}</h3>
+                    <motion.div
+                        key={index}
+                        className="flex flex-col items-center text-center p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                        variants={featureVariants}
+                        whileHover="hover"
+                    >
+                        <h3 className="font-bold text-lg text-gray-800">{feature.title}</h3>
                         <span className="block w-20 h-1 bg-yellow-400 mt-1 mb-2"></span>
-                        <p className="text-gray-600 text-wrap max-w-72">{feature.description}</p>
-                    </div>
+                        <p className="text-gray-600 max-w-[200px]">{feature.description}</p>
+                    </motion.div>
                 ))}
             </div>
-        </div>
+        </motion.div>
     );
 }
