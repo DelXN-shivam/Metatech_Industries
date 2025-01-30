@@ -71,10 +71,10 @@ const Footer = () => {
                 </div>
             </div>
             <div className='pt-12 text-center'>
-                © 2024 <span className='hover:text-blue-500'><a href="/#" target="_blank" rel="noopener noreferrer">Metatech Industries</a></span>.
+                © 2024 <span className='hover:text-blue-500'><a href="/#">Metatech Industries</a></span>.
                 All rights reserved. Managed by
                 <span className='hover:text-red-500'>
-                    <a href="https://delxntech.com/" target="_blank" rel="noopener noreferrer">DelXN Technologies</a>
+                    <a href="https://delxntech.com/" target="_blank" rel="noopener noreferrer"> DelXN Technologies</a>
                 </span>
             </div>
         </footer>

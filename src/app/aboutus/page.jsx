@@ -88,8 +88,6 @@ const AboutUsPage = () => {
                 </div>
             </motion.section>
 
-            {/* Mission, Vision, Core Values Section */}
-
             {/* Vision and Mission Section */}
             <VisionMission />
 
