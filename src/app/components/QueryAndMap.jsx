@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import MapPage from './MapService';
+import GoogleMap from './MapService';
 
 const QueryAndMap = () => {
     const [isVisible, setIsVisible] = useState(false);
@@ -60,7 +61,8 @@ const QueryAndMap = () => {
                         variants={leftAnimation}
                     >
                         <div className="relative w-full h-64 md:h-80 lg:h-[380px] rounded-lg overflow-hidden shadow-lg">
-                            <MapPage />
+                            {/* <MapPage /> */}
+                            <GoogleMap />
                         </div>
                     </motion.div>
 

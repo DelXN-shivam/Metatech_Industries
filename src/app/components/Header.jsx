@@ -36,7 +36,7 @@ const Header = () => {
                                         <motion.ul
                                             initial={{ opacity: 0, y: -10 }}
                                             animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -10 }}
+                                            exit={{ opacity: 0, y: -4 }}
                                             transition={{ duration: 0.8, ease: "easeInOut" }}
                                             className="absolute top-full left-0 mt-2 w-64 bg-white text-black border border-gray-200 z-50 shadow-lg"
                                         >
