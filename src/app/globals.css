@@ -57,7 +57,7 @@ body {
 }
 
 .animate-lightning-border {
-  animation: lightning-border 2s infinite;
+  animation: lightning-border 1.7s infinite;
 }
 
 .animate-lightning-bg {

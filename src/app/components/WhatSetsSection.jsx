@@ -20,7 +20,7 @@ export default function WhatSetsUsApart() {
 
     return (
         <motion.div
-            className="container mx-auto px-4 py-10"
+            className="container mx-auto px-8 py-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.2 }} // Triggers animation when in view
