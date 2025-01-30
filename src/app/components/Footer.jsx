@@ -48,7 +48,7 @@ const Footer = () => {
                 </div>
 
                 {/* Contact Us Section */}
-                <div className="w-full lg:w-1/4 bg-slate-700 px-10 -mt-3 pt-5 rounded-lg space-y-2">
+                <div className="w-full lg:w-1/4 bg-slate-700 px-10 -mt-3 pt-3 rounded-lg space-y-2">
                     <h3 className="text-lg font-bold mb-3">Contact Us</h3>
                     <p className="text-sm hover:underline hover:text-blue-400">
                         Cosmos Bank Bldg, 476, Laxmi Rd, Bhatancha Bol, Narayan Peth, Pune, Maharashtra 411030
