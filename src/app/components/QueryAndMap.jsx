@@ -19,52 +19,44 @@ const QueryAndMap = () => {
     };
 
     useEffect(() => {
-        // Check visibility on scroll
         window.addEventListener('scroll', checkVisibility);
-
-        // Initial check on mount
-        checkVisibility();
+        checkVisibility(); // Initial check on mount
 
         return () => {
             window.removeEventListener('scroll', checkVisibility);
         };
     }, []);
 
-    // Animation Variants
+    // Animation Variants with reduced x-values
     const leftAnimation = {
-        hidden: { opacity: 0, x: -100 },
+        hidden: { opacity: 0, x: -30 }, 
         visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
     };
 
     const rightAnimation = {
-        hidden: { opacity: 0, x: 100 },
+        hidden: { opacity: 0, x: 30 }, 
         visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
     };
 
     return (
-        <div>
+        <div className="overflow-hidden">
             <section
-                ref={sectionRef}  // Attach the ref to the section element to track visibility
-                className={`py-10 bg-gray-50 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                ref={sectionRef}
+                className="w-full py-10 bg-gray-50 transition-opacity duration-1000 overflow-hidden"
             >
                 {/* Section Title */}
-                <motion.h2
-                    className="text-2xl md:text-3xl font-bold text-center text-black mb-6 transition-transform duration-700 ease-in-out transform hover:scale-105"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                >
+                <h2 className="text-2xl md:text-3xl font-bold text-center text-black mb-6">
                     Ask a Query
-                </motion.h2>
+                </h2>
 
                 {/* Content Wrapper */}
-                <div className="container mx-auto flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-6 px-4">
+                <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-6 px-4">
                     
                     {/* Image Section with Animation */}
                     <motion.div
                         className="w-full lg:w-1/2 flex items-center rounded-lg"
                         initial="hidden"
-                        animate={isVisible ? "visible" : "hidden"}  // Trigger animation based on `isVisible`
+                        animate={isVisible ? "visible" : "hidden"}
                         variants={leftAnimation}
                     >
                         <div className="relative w-full h-64 md:h-80 lg:h-[380px] rounded-lg overflow-hidden shadow-lg">
@@ -76,7 +68,7 @@ const QueryAndMap = () => {
                     <motion.div
                         className="border w-full lg:w-1/2 bg-white p-6 rounded-lg shadow-lg flex flex-col items-center lg:items-start transition-transform duration-500 hover:shadow-2xl"
                         initial="hidden"
-                        animate={isVisible ? "visible" : "hidden"}  // Trigger animation based on `isVisible`
+                        animate={isVisible ? "visible" : "hidden"}
                         variants={rightAnimation}
                     >
                         <div className="w-full">
