@@ -51,7 +51,7 @@ const QueryAndMap = () => {
                 </h2>
 
                 {/* Content Wrapper */}
-                <div className="max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-6 px-4">
+                <div className="w-full mx-auto flex flex-col lg:flex-row items-center space-y-6 lg:space-y-0 lg:space-x-6 px-8">
                     
                     {/* Image Section with Animation */}
                     <motion.div
