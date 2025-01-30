@@ -8,6 +8,7 @@ import Footer from "./components/Footer";
 import QueryAndMap from "./components/QueryAndMap";
 import TeamAndBlog from "./aboutus/page";
 import AboutUsPage from "./aboutus/page";
+import VisionMission from "./components/VisionAndCoreValues";
 
 const Home = () => {
   return (
