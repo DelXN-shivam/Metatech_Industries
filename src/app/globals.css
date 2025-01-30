@@ -19,3 +19,51 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@keyframes lightning-border {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #FF9800;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes lightning-bg {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes image-lightning-bg {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-lightning-border {
+  animation: lightning-border 2s infinite;
+}
+
+.animate-lightning-bg {
+  animation: lightning-bg 3s infinite;
+}
+
+.animate-image-lightning-bg {
+  animation: image-lightning-bg 3.5s infinite;
+}

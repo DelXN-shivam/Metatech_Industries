@@ -6,6 +6,7 @@ import CompanyHeader from '../components/CompanyHeader';
 import Header from '../components/Header';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
+import VisionMission from '../components/VisionAndCoreValues';
 
 const AboutUsPage = () => {
 
@@ -44,7 +45,7 @@ const AboutUsPage = () => {
         <div className="bg-gray-50">
             {/* Hero Section */}
             <motion.section
-                className="relative bg-cover bg-center h-screen"
+                className="relative bg-cover bg-center h-screen opacity-50"
                 style={{
                     backgroundImage: "url('/images/aboutus_bg.jpg')"
                 }}
@@ -61,79 +62,37 @@ const AboutUsPage = () => {
                     <Header />
 
                     {/* Main Heading motion.div */}
-                    <div className="flex flex-col justify-center items-center pt-12 text-center">
-                        <motion.h1
-                            className="text-3xl md:text-5xl font-bold leading-tight text-orange-500"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.2, duration: 1 }}
-                        >
-                            About Us
-                        </motion.h1>
-                        <motion.p
-                            className="text-lg md:text-xl mt-4 px-6 max-w-3xl mx-auto"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.3, duration: 1 }}
-                        >
-                            At Metatech, we’re not just a provider of Metallography solutions – we’re your trusted partner in materials
-                            analysis and innovation. With over 38 years of industry experience, we’ve honed our expertise to offer a comprehensive
-                            suite of services and facilities that empower our clients to achieve their goals with confidence.
-                        </motion.p>
+                    <div className="justify-evenly text-right flex flex-row pt-12 ">
+                        <Image src="/images/40_Years_Image.png" alt="40 Years in Service" width={500} height={500} className='animate-image-lightning-bg overflow-hidden'/>
+                        <div className='space-y-6'>
+                            <motion.h1
+                                className="text-5xl font-bold leading-tight text-orange-500"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.2, duration: 1 }}
+                            >
+                                About Us
+                            </motion.h1>
+                            <motion.p
+                                className="w-96 leading-relaxed text-balance hover:underline"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.3, duration: 1 }}
+                            >
+                                At Metatech, we’re not just a provider of Metallography solutions – we’re your trusted partner in materials
+                                analysis and innovation. With over 40 years of industry experience, we’ve honed our expertise to offer a comprehensive
+                                suite of services and facilities that empower our clients to achieve their goals with confidence.
+                            </motion.p>
+                        </div>
                     </div>
                 </div>
             </motion.section>
 
             {/* Mission, Vision, Core Values Section */}
-            <motion.section
-                className="container mx-auto py-16 px-16"
-                initial="hidden"
-                animate="visible"
-                variants={scrollVariant}
-            >
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                    {/* Mission */}
-                    <motion.div
-                        className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl cursor-pointer"
-                        variants={scrollVariant}
-                        whileTap={{ scale: 0.95 }}
-                        whileHover={{ scale: 1.05 }}
-                    >
-                        <h3 className="text-2xl font-bold text-orange-500">MISSION</h3>
-                        <p className="mt-4 text-gray-600">
-                            At Metatech, our mission is to provide cutting-edge metallography solutions and expert materials analysis,
-                            empowering our clients to make informed decisions and achieve their innovation goals with confidence.
-                        </p>
-                    </motion.div>
 
-                    {/* Vision */}
-                    <motion.div
-                        className="bg-orange-500 text-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl cursor-pointer"
-                        variants={scrollVariant}
-                        whileTap={{ scale: 0.95 }}
-                        whileHover={{ scale: 1.05 }}
-                    >
-                        <h3 className="text-2xl font-bold">VISION</h3>
-                        <p className="mt-4">
-                            Our vision is to be the leading global partner in materials analysis and metallography, delivering innovative
-                            solutions that drive success across industries for over 40 years.
-                        </p>
-                    </motion.div>
+            {/* Vision and Mission Section */}
+            <VisionMission />
 
-                    {/* Core Values */}
-                    <motion.div
-                        className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl cursor-pointer"
-                        variants={scrollVariant}
-                        whileTap={{ scale: 0.95 }}
-                        whileHover={{ scale: 1.05 }}
-                    >
-                        <h3 className="text-2xl font-bold text-orange-500">CORE VALUES</h3>
-                        <p className="mt-4 text-gray-600">
-                            1. Innovation <br /> 2. Integrity <br /> 3. Service <br /> 4. Trust <br />
-                        </p>
-                    </motion.div>
-                </div>
-            </motion.section>
             {/* Our Experience Section */}
             <motion.section
                 className="container mx-auto px-16 flex flex-col md:flex-row items-center"
@@ -143,7 +102,7 @@ const AboutUsPage = () => {
             >
                 <div className="md:w-1/2 text-left">
                     <motion.h2
-                        className="text-3xl font-bold text-gray-900"
+                        className="text-5xl font-bold text-orange-500"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2, duration: 1 }}
@@ -151,7 +110,7 @@ const AboutUsPage = () => {
                         Our Experience
                     </motion.h2>
                     <motion.h3
-                        className="text-2xl font-bold text-black mt-2"
+                        className="text-2xl font-bold text-orange-400 mt-2 hover:underline"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3, duration: 1 }}
@@ -159,7 +118,7 @@ const AboutUsPage = () => {
                         Trusted Globally, Recognized Locally
                     </motion.h3>
                     <motion.p
-                        className="mt-4 text-gray-700 leading-relaxed"
+                        className="mt-4 text-gray-700 leading-relaxed text-balance"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.4, duration: 1 }}
@@ -170,19 +129,19 @@ const AboutUsPage = () => {
                     </motion.p>
                 </div>
                 <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
-                    <Image src="/images/40_Years_Image.png" alt="40 Years in Service" width={500} height={400} />
+                    <Image src="/images/experience.png" alt="Our Experiences" width={500} height={400} className='rounded-xl hover:scale-105 shadow-md transition-shadow duration-900'/>
                 </div>
             </motion.section>
 
             {/* Our Services Section */}
             <motion.section
-                className="container mx-auto pb-10 text-center"
+                className="container mx-auto py-10 text-center"
                 initial="hidden"
                 animate="visible"
                 variants={scrollVariant}
             >
                 <motion.h2
-                    className="text-3xl font-bold text-orange-500"
+                    className="text-5xl font-bold text-orange-500"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2, duration: 1 }}
@@ -231,7 +190,7 @@ const AboutUsPage = () => {
                 </div>
 
                 <motion.h1
-                    className="text-orange-500 text-lg font-bold hover:text-xl mt-8 text-wrap"
+                    className="text-orange-500 text-xl font-bold hover:text-2xl mt-8 text-wrap"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 1 }}
