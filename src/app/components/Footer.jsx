@@ -19,6 +19,9 @@ const Footer = () => {
                     <div className="bg-white p-4 mb-4 rounded-lg transform transition duration-500 hover:scale-105">
                         <img src="/images/metatech_logo.png" alt="Metatech Logo" className="w-56" />
                     </div>
+                    <p className="text-center sm:text-left text-sm sm:text-base text-gray-300 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl mt-2">
+                        Metatech Industries is a leading provider of precision metallurgical solutions, offering top-quality sectioning, polishing, and microscopy equipment for laboratories worldwide.
+                    </p>
                 </div>
 
                 {/* Our Products Section */}
