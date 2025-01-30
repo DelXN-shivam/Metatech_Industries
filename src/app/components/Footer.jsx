@@ -19,6 +19,10 @@ const Footer = () => {
                     <div className="bg-white p-4 mb-4 rounded-lg transform transition duration-500 hover:scale-105">
                         <img src="/images/metatech_logo.png" alt="Metatech Logo" className="w-56" />
                     </div>
+                    <div className="bg-gray-800 p-2 mt-2 rounded-lg text-center lg:w-64 lg:text-left px-8 py-4">
+                        <h4 className="text-lg font-semibold text-white">Why Choose Us?</h4>
+                        <p className="text-sm text-gray-400 mt-2">With decades of expertise, cutting-edge technology, and unparalleled customer service, Metatech Industries is your trusted partner.</p>
+                    </div>
                 </div>
 
                 {/* Our Products Section */}
@@ -44,7 +48,7 @@ const Footer = () => {
                 </div>
 
                 {/* Contact Us Section */}
-                <div className="w-full lg:w-1/4 bg-slate-700 px-10 py-6 rounded-lg space-y-2">
+                <div className="w-full lg:w-1/4 bg-slate-700 px-10 -mt-3 pt-5 rounded-lg space-y-2">
                     <h3 className="text-lg font-bold mb-3">Contact Us</h3>
                     <p className="text-sm hover:underline hover:text-blue-400">
                         Cosmos Bank Bldg, 476, Laxmi Rd, Bhatancha Bol, Narayan Peth, Pune, Maharashtra 411030
