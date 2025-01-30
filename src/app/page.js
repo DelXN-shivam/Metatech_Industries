@@ -13,7 +13,6 @@ import VisionMission from "./components/VisionAndCoreValues";
 const Home = () => {
   return (
     <div className="font-sans bg-gray-50 text-gray-900">
-      {/* <Header /> */}
 
       {/* Hero Section */}
       <HeroSection />
