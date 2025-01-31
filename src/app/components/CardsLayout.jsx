@@ -12,7 +12,7 @@ function CardsLayout() {
         <h3 className="text-2xl font-bold text-white mb-4 underline">
           Innovation
         </h3>
-        <p className="text-lg text-gray-700 hover:underline text-white">
+        <p className="text-lg text-gray-700 text-white">
           We constantly innovate to meet the evolving needs of our clients.
         </p>
       </div>
@@ -28,7 +28,7 @@ function CardsLayout() {
           <h3 className="text-2xl font-bold text-white mb-4 underline">
             Creativity
           </h3>
-          <p className="text-lg text-gray-700 hover:underline text-white">
+          <p className="text-lg text-gray-700 text-white">
             We think outside the box to provide unique solutions.
           </p>
         </div>
@@ -41,7 +41,7 @@ function CardsLayout() {
           <h3 className="text-2xl font-bold text-white mb-4 underline">
             Expertise
           </h3>
-          <p className="text-lg text-gray-700 hover:underline text-white">
+          <p className="text-lg text-gray-700 text-white">
             Our team has the expertise to deliver high-quality results.
           </p>
         </div>
@@ -58,7 +58,7 @@ function CardsLayout() {
           <h3 className="text-2xl font-bold text-white mb-4 underline">
             Quality
           </h3>
-          <p className="text-lg text-gray-700 hover:underline text-white">
+          <p className="text-lg text-gray-700 text-white">
             We strive for excellence in everything we do.
           </p>
         </div>
@@ -71,7 +71,7 @@ function CardsLayout() {
           <h3 className="text-2xl font-bold text-white mb-4 underline">
             Satisfaction
           </h3>
-          <p className="text-lg text-gray-700 hover:underline text-white">
+          <p className="text-lg text-gray-700 text-white">
             Our goal is to exceed our clients' expectations.
           </p>
         </div>
@@ -93,7 +93,7 @@ export default CardsLayout;
 //         {/* First Card */}
 //         <div className="p-8 border-4 border-transparent bg-gray-100 text-center rounded-lg animate-lightning-border">
 //           <h3 className="text-2xl font-bold text-white mb-4">Innovation</h3>
-//           <p className="text-lg text-gray-700 hover:underline">
+//           <p className="text-lg text-gray-700">
 //             We constantly innovate to meet the evolving needs of our clients.
 //           </p>
 //         </div>
@@ -104,7 +104,7 @@ export default CardsLayout;
 //         <div className="relative w-1/3">
 //           <div className="p-8 border-4 border-transparent bg-gray-100 text-center rounded-lg animate-lightning-border z-10">
 //             <h3 className="text-2xl font-bold text-white mb-4">Innovation</h3>
-//             <p className="text-lg text-gray-700 hover:underline">
+//             <p className="text-lg text-gray-700">
 //               We constantly innovate to meet the evolving needs of our clients.
 //             </p>
 //           </div>
@@ -113,7 +113,7 @@ export default CardsLayout;
 //         <div className="relative w-1/3 -mt-16">
 //           <div className="p-8 border-4 border-transparent bg-gray-100 text-center rounded-lg animate-lightning-border z-20">
 //             <h3 className="text-2xl font-bold text-white mb-4">Innovation</h3>
-//             <p className="text-lg text-gray-700 hover:underline">
+//             <p className="text-lg text-gray-700">
 //               We constantly innovate to meet the evolving needs of our clients.
 //             </p>
 //           </div>
@@ -125,7 +125,7 @@ export default CardsLayout;
 //         <div className="relative w-1/3">
 //           <div className="p-8 border-4 border-transparent bg-gray-100 text-center rounded-lg animate-lightning-border">
 //             <h3 className="text-2xl font-bold text-white mb-4">Innovation</h3>
-//             <p className="text-lg text-gray-700 hover:underline">
+//             <p className="text-lg text-gray-700">
 //               We constantly innovate to meet the evolving needs of our clients.
 //             </p>
 //           </div>
@@ -134,7 +134,7 @@ export default CardsLayout;
 //         <div className="relative w-1/3 -mt-24">
 //           <div className="p-8 border-4 border-transparent bg-gray-100 text-center rounded-lg animate-lightning-border">
 //             <h3 className="text-2xl font-bold text-white mb-4">Innovation</h3>
-//             <p className="text-lg text-gray-700 hover:underline">
+//             <p className="text-lg text-gray-700">
 //               We constantly innovate to meet the evolving needs of our clients.
 //             </p>
 //           </div>
@@ -158,7 +158,7 @@ export default CardsLayout;
 //                 <div className="col-span-2 flex justify-center">
 //                     <div className="p-8 border-4 border-transparent bg-gray-100 text-center rounded-lg animate-lightning-border w-full max-w-md">
 //                         <h3 className="text-2xl font-bold text-white mb-4">Innovation</h3>
-//                         <p className="text-lg text-gray-700 hover:underline">
+//                         <p className="text-lg text-gray-700">
 //                             We constantly innovate to meet the evolving needs of our clients.
 //                         </p>
 //                     </div>
@@ -168,13 +168,13 @@ export default CardsLayout;
 //                 <div className="col-span-2 gap-36 flex justify-between mt-[-50px] relative z-10">
 //                     <div className="p-8 border-4 border-transparent bg-gray-100 text-center rounded-lg animate-lightning-border w-full max-w-sm">
 //                         <h3 className="text-2xl font-bold text-white mb-4">Quality</h3>
-//                         <p className="text-lg text-gray-700 hover:underline">
+//                         <p className="text-lg text-gray-700">
 //                             We deliver high-quality solutions tailored to your needs.
 //                         </p>
 //                     </div>
 //                     <div className="p-8 border-4 border-transparent bg-gray-100 text-center rounded-lg animate-lightning-border w-full max-w-sm">
 //                         <h3 className="text-2xl font-bold text-white mb-4">Collaboration</h3>
-//                         <p className="text-lg text-gray-700 hover:underline">
+//                         <p className="text-lg text-gray-700">
 //                             We work closely with our clients to achieve their goals.
 //                         </p>
 //                     </div>
@@ -184,13 +184,13 @@ export default CardsLayout;
 //                 <div className="col-span-2 flex justify-between mt-[-50px] relative z-10">
 //                     <div className="p-8 border-4 border-transparent bg-gray-100 text-center rounded-lg animate-lightning-border w-full max-w-sm">
 //                         <h3 className="text-2xl font-bold text-white mb-4">Sustainability</h3>
-//                         <p className="text-lg text-gray-700 hover:underline">
+//                         <p className="text-lg text-gray-700">
 //                             We focus on sustainable solutions for a better future.
 //                         </p>
 //                     </div>
 //                     <div className="p-8 border-4 border-transparent bg-gray-100 text-center rounded-lg animate-lightning-border w-full max-w-sm">
 //                         <h3 className="text-2xl font-bold text-white mb-4">Excellence</h3>
-//                         <p className="text-lg text-gray-700 hover:underline">
+//                         <p className="text-lg text-gray-700">
 //                             We strive for excellence in everything we do.
 //                         </p>
 //                     </div>

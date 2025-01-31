@@ -44,7 +44,7 @@ const Footer = () => {
                 </div>
 
 
-                <div className="flex flex-col w-72 rounded-lg bg-slate-700 text-white px-8 py-4 space-y-2 justify-center">
+                <div className="flex flex-col w-1/2 rounded-lg bg-slate-700 text-white px-8 py-4 space-y-2 justify-center">
                     <h3 className="text-lg sm:text-xl font-bolds text-center lg:text-left ">Contact Us</h3>
                     <p className="text-sm sm:text-base text-center lg:text-left hover:underline hover:text-blue-400">
                         Cosmos Bank Bldg, 476, Laxmi Rd, Bhatancha Bol, Narayan Peth, Pune, Maharashtra 411030
