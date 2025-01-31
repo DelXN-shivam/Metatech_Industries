@@ -89,12 +89,12 @@ const Services = () => {
 
                             {/* Content */}
                             <div className="flex flex-col justify-evenly text-center h-full mt-8 px-4">
-                                <h3 className="text-lg font-bold mb-4 text-gray-800 transition-colors duration-300 group-hover:text-orange-600">
+                                <h3 className="text-3xl font-bold mb-4 text-gray-800 transition-colors duration-300 group-hover:text-orange-600">
                                     {service.title}
                                 </h3>
 
                                 <div className="p-4 rounded bg-gray-800 text-white transition-colors duration-300 group-hover:bg-orange-500 group-hover:text-gray-100">
-                                    <p className="text-sm">{service.description}</p>
+                                    <p className="text-md">{service.description}</p>
                                 </div>
                             </div>
                         </div>
