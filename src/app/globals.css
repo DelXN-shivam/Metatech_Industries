@@ -25,7 +25,7 @@ body {
     border-color: transparent;
   }
   50% {
-    border-color: #FFA726;
+    border-color: #FFCC80;
   }
   100% {
     border-color: transparent;
@@ -57,11 +57,11 @@ body {
 }
 
 .animate-lightning-border {
-  animation: lightning-border 1.7s infinite;
+  animation: lightning-border 0s infinite;
 }
 
 .animate-lightning-bg {
-  animation: lightning-bg 3s infinite;
+  animation: lightning-bg 2s infinite;
 }
 
 .animate-image-lightning-bg {

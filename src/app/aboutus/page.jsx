@@ -7,6 +7,7 @@ import Header from '../components/Header';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import VisionMission from '../components/VisionAndCoreValues';
+import CardsLayout from '../components/CardsLayout';
 
 const AboutUsPage = () => {
 
@@ -93,7 +94,7 @@ const AboutUsPage = () => {
 
             {/* Our Experience Section */}
             <motion.section
-                className="container mx-auto px-16 flex flex-col md:flex-row items-center"
+                className="container mx-auto pt-10 px-16 flex flex-col md:flex-row items-center"
                 initial="hidden"
                 animate="visible"
                 variants={scrollVariant}
