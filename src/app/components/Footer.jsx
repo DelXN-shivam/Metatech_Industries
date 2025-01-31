@@ -21,7 +21,7 @@ const Footer = () => {
 
 
                 {/* Our Product and Quick Link */}
-                <div className='w-full px-20  flex flex-row items-start justify-between pt-4'>
+                <div className='w-full px-24  flex flex-row items-start justify-between pt-4'>
                     <div className="text-white items-start">
                         <h3 className="text-lg font-bold mb-3">Our Products</h3>
                         <ul className="space-y-2">

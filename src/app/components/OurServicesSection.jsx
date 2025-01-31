@@ -65,7 +65,7 @@ const Services = () => {
       </h2>
 
       {/* Services Grid */}
-      <div className="mx-auto grid grid-cols-1 phone:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-3 desktopxl:grid-cols-4 gap-8 px-8">
+      <div className="mx-auto grid grid-cols-1 phone:grid-cols-1 tablet:grid-cols-2 laptop:grid-cols-3 desktop:grid-cols-3 desktopxl:grid-cols-3 gap-8 px-8">
         {services.map((service, index) => (
           <motion.div
             key={index}
@@ -88,7 +88,7 @@ const Services = () => {
 
               {/* Content */}
               <div className="flex flex-col justify-evenly text-center h-full mt-8 px-4">
-                <h3 className="text-xl phone:text-lg tablet:text-xl laptop:text-2xl desktop:text-3xl desktopxl:text-4xl font-bold mb-4 text-gray-800 transition-colors duration-300 group-hover:text-orange-600">
+                <h3 className="text-xl phone:text-lg tablet:text-xl laptop:text-2xl desktop:text-3xl desktopxl:text-3xl font-bold mb-4 text-gray-800 transition-colors duration-300 group-hover:text-orange-600">
                   {service.title}
                 </h3>
 

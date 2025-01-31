@@ -1,9 +1,26 @@
 import React from "react";
 import CardsLayout from "./CardsLayout";
+import { motion } from 'framer-motion';
 
 const VisionMission = () => {
+
+  // Variants for general section animation on load
+  const containerVarients = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 1.2, ease: 'easeInOut',
+      }
+    },
+  };
+
   return (
-    <div className=" text-white font-calibri  overflow-hidden">
+    <div className=" text-white font-calibri overflow-hidden">
       {/* Lightning Border Effect for the entire page */}
       <div className="absolute inset-0 border-4 border-transparent"></div>
 
@@ -11,7 +28,12 @@ const VisionMission = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-200 to-transparent animate-lightning-bg"></div>
 
       {/* Content */}
-      <div className="relative bg-gray-900 text-white py-8 px-6 text-center items-center justify-center">
+      <motion.div
+        className="relative bg-gray-900 text-white pt-8 px-6 text-center items-center justify-center"
+        initial="hidden"
+        animate="visible"
+        variants={containerVarients}
+      >
         {/* Vision & Mission Heading */}
         <div className="text-center mb-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Vision & Mission</h1>
@@ -39,7 +61,7 @@ const VisionMission = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Our Core Values</h1>
         </div>
         <CardsLayout />
-      </div>
+      </motion.div>
     </div>
   );
 };
