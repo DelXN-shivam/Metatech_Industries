@@ -58,13 +58,13 @@ const AboutUsPage = () => {
                 <div className="absolute inset-0 bg-black opacity-50"></div>
 
                 {/* Content */}
-                <div className="max-w-screen-xl mx-auto text-center items-center justify-center text-white relative px-6 md:px-8 lg:px-12 py-1">
+                <div className="max-w-screen-xl mx-auto text-center items-center justify-center text-white relative z-10 px-6 md:px-8 lg:px-12 py-1">
                     <CompanyHeader />
                     <Header />
 
                     {/* Main Heading motion.div */}
                     <div className="justify-evenly text-right flex flex-row pt-12 ">
-                        <Image src="/images/40_Years_Image.png" alt="40 Years in Service" width={500} height={500} className='animate-image-lightning-bg overflow-hidden'/>
+                        <Image src="/images/40_Years_Image.png" alt="40 Years in Service" width={500} height={500} className='animate-image-lightning-bg overflow-hidden' />
                         <div className='space-y-6'>
                             <motion.h1
                                 className="text-5xl font-bold leading-tight text-orange-500"
@@ -128,7 +128,7 @@ const AboutUsPage = () => {
                     </motion.p>
                 </div>
                 <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
-                    <Image src="/images/experience.png" alt="Our Experiences" width={500} height={400} className='rounded-xl hover:scale-105 shadow-md transition-shadow duration-900'/>
+                    <Image src="/images/experience.png" alt="Our Experiences" width={500} height={400} className='rounded-xl hover:scale-105 shadow-md transition-shadow duration-900' />
                 </div>
             </motion.section>
 

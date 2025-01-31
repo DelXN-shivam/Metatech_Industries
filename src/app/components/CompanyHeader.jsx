@@ -27,6 +27,7 @@ const CompanyHeader = () => {
         <div className=" p-4">
             <div className='flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0'>
                 {/* Logo */}
+                <a href="/#">
                 <div className="bg-white p-4 rounded-lg">
                     <Image
                         src="/images/metatech_logo.png"
@@ -35,6 +36,7 @@ const CompanyHeader = () => {
                         alt="Metatech Logo"
                     />
                 </div>
+                </a>
 
                 {/* Contact Info */}
                 <div className="flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-4 md:space-y-0">
