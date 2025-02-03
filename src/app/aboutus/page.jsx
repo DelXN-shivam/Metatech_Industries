@@ -7,7 +7,6 @@ import Header from '../components/Header';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';
 import VisionMission from '../components/VisionAndCoreValues';
-import CardsLayout from '../components/CardsLayout';
 
 const AboutUsPage = () => {
 

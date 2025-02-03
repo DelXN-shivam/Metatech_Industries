@@ -1,3 +1,5 @@
+'use client';
+
 import React from "react";
 import CardsLayout from "./CardsLayout";
 import { motion } from 'framer-motion';
@@ -25,7 +27,7 @@ const VisionMission = () => {
       <div className="absolute inset-0 border-4 border-transparent"></div>
 
       {/* Lightning Background Effect */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-200 to-transparent animate-lightning-bg"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-200 to-transparent animate-lightning-bg"></div> */}
 
       {/* Content */}
       <motion.div
