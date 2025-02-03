@@ -12,7 +12,7 @@ import VisionMission from "./components/VisionAndCoreValues";
 
 const Home = () => {
   return (
-    <div className="font-sans bg-gray-50 text-gray-900">
+    <div className="font-sans bg-gray-50 text-gray-900 w-full">
 
       {/* Hero Section */}
       <HeroSection />
@@ -21,7 +21,7 @@ const Home = () => {
       <ExpertiseSection />
 
       {/* What Sets Us Apart Section */}
-      <WhatSetsSection />
+      {/* <WhatSetsSection /> */}
 
       {/* Services Section */}
       <OurServicesSection />
@@ -30,7 +30,7 @@ const Home = () => {
       <QueryAndMap />
 
       {/* About Us Section + Footer*/}
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

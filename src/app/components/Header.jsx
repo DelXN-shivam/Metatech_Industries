@@ -10,7 +10,7 @@ const Header = () => {
     return (
         <div>
             {/* Navbar */}
-            <header className="bg-black opacity-70">
+            <header className="bg-black opacity-70 phone:hidden">
                 <div className="flex justify-end items-center p-2">
                     <nav>
                         <ul className="flex flex-row items-center space-x-1 py-1">

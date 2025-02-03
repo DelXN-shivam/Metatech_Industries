@@ -148,7 +148,7 @@ const HeroSection = () => {
         <div>
             {/* Hero motion.section */}
             <motion.section
-                className="relative bg-cover bg-center h-screen"
+                className="relative bg-cover bg-center h-screen phone:h-auto"
                 style={{
                     backgroundImage: "url('/images/machine_bg.jpg')"
                 }}
@@ -160,36 +160,36 @@ const HeroSection = () => {
                 <div className="absolute inset-0 bg-black opacity-70"></div>
 
                 {/* Content */}
-                <div className="max-w-screen-xl mx-auto text-center text-white relative px-6 md:px-8 lg:px-12 py-1">
+                <div className="max-w-screen-xl mx-auto text-center text-white relative px-6 py-1">
                     <CompanyHeader />
                     <Header />
 
                     {/* Main Heading motion.section */}
                     <motion.div
-                        className="flex flex-col max-w-screen-lg justify-start items-start pt-15 lg:pt-15"
+                        className="flex flex-col max-w-screen-lg justify-start items-start pt-15"
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: 'easeOut' }}
                     >
-                        <h1 className="text-2xl md:text-5xl lg:text-4xl font-bold leading-tight pt-16">
+                        <h1 className="text-2xl md:text-5xl lg:text-4xl font-bold leading-tight pt-16 phone:pt-4 phone:text-sm">
                             Most Advanced Machinery
                         </h1>
-                        <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold pt-4 leading-tight">
+                        <h1 className="text-2xl lg:text-5xl font-bold pt-4 leading-tight phone:pt-0 phone:text-xl">
                             MECHANICAL COMPANY
                         </h1>
-                        <h3 className="font-semibold text-lg md:text-xl lg:pt-4">
+                        <h3 className="font-semibold text-lg lg:pt-4 phone:pt-3 phone:text-xs">
                             Real Measuring System,
                         </h3>
-                        <h3 className="font-semibold text-lg md:text-xl">
+                        <h3 className="font-semibold text-lg phone:pt-0 phone:text-xs">
                             Reliability, and Performance
                         </h3>
 
                         {/* Buttons */}
-                        <div className="space-x-2 sm:space-x-8 pt-10">
+                        <div className="space-x-2 pt-10 phone:">
                             <a
                                 href="#about"
                                 className={`${isReadMoreActive ? 'bg-orange-500' : 'bg-gray-500'
-                                    } hover:${isReadMoreActive ? 'bg-orange-600' : 'bg-orange-600'} text-white px-5 py-2 border border-black font-semibold`}
+                                    } hover:${isReadMoreActive ? 'bg-orange-600' : 'bg-orange-600'} text-white px-5 py-2 border border-black font-semibold phone:text-base phone:px-3 phone:py-1`}
                                 onClick={() => setIsReadMoreActive(true)} // Set 'Read More' active
                             >
                                 Read More
@@ -197,7 +197,7 @@ const HeroSection = () => {
                             <a
                                 href="/aboutus"
                                 className={`${!isReadMoreActive ? 'bg-orange-500' : 'bg-gray-500'
-                                    } hover:${!isReadMoreActive ? 'bg-orange-600' : 'bg-orange-600'} text-white px-5 py-2 border border-white font-semibold`}
+                                    } hover:${!isReadMoreActive ? 'bg-orange-600' : 'bg-orange-600'} text-white px-5 py-2 border border-white font-semibold phone:text-base phone:px-3 phone:py-1`}
                                 onClick={() => setIsReadMoreActive(false)} // Set 'About Us' active
                             >
                                 About Us
