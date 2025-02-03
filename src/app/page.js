@@ -21,7 +21,7 @@ const Home = () => {
       <ExpertiseSection />
 
       {/* What Sets Us Apart Section */}
-      {/* <WhatSetsSection /> */}
+      <WhatSetsSection />
 
       {/* Services Section */}
       <OurServicesSection />
@@ -30,7 +30,7 @@ const Home = () => {
       <QueryAndMap />
 
       {/* About Us Section + Footer*/}
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
