@@ -1,6 +1,7 @@
 'use client';
 
 import CompanyHeader from "@/app/components/CompanyHeader";
+import Footer from "@/app/components/Footer";
 import Header from "@/app/components/Header";
 import { useRouter, useParams } from "next/navigation";
 import React, { useState } from 'react';
@@ -216,7 +217,7 @@ const ProductListing = () => {
                 {/* <CompanyHeader /> */}
                 <Header />
             </div>
-            <div className="flex min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+            <div className="flex min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 my-10">
                 {/* Enhanced Sidebar */}
                 <div className="w-80 h-fit sticky top-6 mx-6 mt-6 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
                     <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-4">
@@ -302,6 +303,7 @@ const ProductListing = () => {
                     )}
                 </div>
             </div>
+            <Footer />
         </div>
     );
 };

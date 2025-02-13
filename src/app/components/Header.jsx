@@ -192,17 +192,17 @@ const Header = () => {
                             </li>
 
                             <li>
-                                <a href="/courses" className="hover:text-blue-500 text-lg font-semibold hover:bg-slate-100 py-3 px-5 rounded-full">
+                                <a href="#" className="hover:text-blue-500 text-lg font-semibold hover:bg-slate-100 py-3 px-5 rounded-full">
                                     Courses
                                 </a>
                             </li>
                             <li>
-                                <a href="/aboutus" className="hover:text-blue-500 text-lg font-semibold hover:bg-slate-100 py-3 px-5 rounded-full">
+                                <a href="#" className="hover:text-blue-500 text-lg font-semibold hover:bg-slate-100 py-3 px-5 rounded-full">
                                     About
                                 </a>
                             </li>
                             <li>
-                                <a href="/demo" className="hover:text-blue-500 text-lg font-semibold hover:bg-slate-100 py-3 px-5 rounded-full">
+                                <a href="#" className="hover:text-blue-500 text-lg font-semibold hover:bg-slate-100 py-3 px-5 rounded-full">
                                     Contact
                                 </a>
                             </li>

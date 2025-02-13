@@ -1,77 +1,73 @@
-import React from 'react';
+import React from "react";
 
 function CardsLayout() {
   return (
-    <div className="container mx-auto p-4 flex flex-col items-center">
+    <div className="container mx-auto p-4 flex flex-col items-center phone:p-0 mb-16">
       {/* Top Card */}
       <div
-        className="p-8 w-96 border-4 border-transparent bg-[#4949c3] text-center rounded-lg mb-16 z-10 relative 
+        className="p-8 w-full sm:w-96 border-4 border-transparent bg-[#4949c3] text-center rounded-lg mb-8 z-10 relative 
                    transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-blue-900 
                    animate-fade-in"
       >
         <h3 className="text-2xl font-bold text-white mb-4 underline">
           Innovation
         </h3>
-        <p className="text-lg text-gray-700 text-white">
+        <p className="text-lg text-white">
           We constantly innovate to meet the evolving needs of our clients.
         </p>
       </div>
 
       {/* Middle Two Cards */}
-      <div className="flex gap-32 mt-[-50px] relative z-10 justify-center mb-24">
+      <div className="w-full flex flex-col sm:flex-row sm:gap-32 sm:mt-[-50px] relative z-10 sm:justify-center mb-8 sm:mb-24">
         <div
-          className="p-8 w-96 border-4 border-transparent bg-[#826abe] text-center rounded-lg w-1/2 -mt-8 z-0 
+          className="p-8 w-full sm:w-96 border-4 border-transparent bg-[#826abe] text-center rounded-lg mb-8 sm:mb-0 sm:-mt-8 z-0 
                      transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-blue-900 
                      animate-slide-in-left"
-          style={{ marginLeft: "-2rem" }}
         >
           <h3 className="text-2xl font-bold text-white mb-4 underline">
             Creativity
           </h3>
-          <p className="text-lg text-gray-700 text-white">
+          <p className="text-lg text-white">
             We think outside the box to provide unique solutions.
           </p>
         </div>
         <div
-          className="p-8 w-96 border-4 border-transparent bg-[#826abe] text-center rounded-lg w-1/2 -mt-8 z-0 
+          className="p-8 w-full sm:w-96 border-4 border-transparent bg-[#826abe] text-center rounded-lg sm:-mt-8 z-0 
                      transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-blue-900 
                      animate-slide-in-right"
-          style={{ marginRight: "-2rem" }}
         >
           <h3 className="text-2xl font-bold text-white mb-4 underline">
             Expertise
           </h3>
-          <p className="text-lg text-gray-700 text-white">
+          <p className="text-lg text-white">
             Our team has the expertise to deliver high-quality results.
           </p>
         </div>
       </div>
 
       {/* Bottom Two Cards */}
-      <div className="flex gap-96 mt-[-50px] relative z-10 justify-center mb-24">
+      <div className="w-full flex flex-col sm:flex-row sm:gap-96 sm:mt-[-50px] relative z-10 sm:justify-center mb-8 sm:mb-24">
         <div
-          className="p-8 border-4 border-transparent bg-[#b68cb8] text-center rounded-lg w-1/2 -mt-16 z-0 
+          className="p-8 w-full sm:w-96 border-4 border-transparent bg-[#b68cb8] text-center rounded-lg mb-8 sm:mb-0 sm:-mt-16 z-0 
                      transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-blue-900 
                      animate-slide-in-left"
-          style={{ marginLeft: "-4rem" }}
         >
           <h3 className="text-2xl font-bold text-white mb-4 underline">
             Quality
           </h3>
-          <p className="text-lg text-gray-700 text-white">
+          <p className="text-lg text-white">
             We strive for excellence in everything we do.
           </p>
         </div>
         <div
-          className="p-8 border-4 border-transparent bg-[#b68cb8] text-center rounded-lg w-1/2 -mt-16 z-0 
+          className="p-8 w-full sm:w-96 border-4 border-transparent bg-[#b68cb8] text-center rounded-lg sm:-mt-16 z-0 
                      transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-blue-900 
                      animate-slide-in-right"
-          style={{ marginRight: "-4rem" }}
         >
           <h3 className="text-2xl font-bold text-white mb-4 underline">
             Satisfaction
           </h3>
-          <p className="text-lg text-gray-700 text-white">
+          <p className="text-lg text-white">
             Our goal is to exceed our clients' expectations.
           </p>
         </div>
@@ -81,6 +77,92 @@ function CardsLayout() {
 }
 
 export default CardsLayout;
+
+
+
+// import React from 'react';
+
+// function CardsLayout() {
+//   return (
+//     <div className="container mx-auto p-4 flex flex-col items-center">
+//       {/* Top Card */}
+//       <div
+//         className="p-8 w-96 border-4 border-transparent bg-[#4949c3] text-center rounded-lg mb-16 z-10 relative 
+//                    transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-blue-900 
+//                    animate-fade-in"
+//       >
+//         <h3 className="text-2xl font-bold text-white mb-4 underline">
+//           Innovation
+//         </h3>
+//         <p className="text-lg text-gray-700 text-white">
+//           We constantly innovate to meet the evolving needs of our clients.
+//         </p>
+//       </div>
+
+//       {/* Middle Two Cards */}
+//       <div className="flex gap-32 mt-[-50px] relative z-10 justify-center mb-24">
+//         <div
+//           className="p-8 w-96 border-4 border-transparent bg-[#826abe] text-center rounded-lg w-1/2 -mt-8 z-0 
+//                      transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-blue-900 
+//                      animate-slide-in-left"
+//           style={{ marginLeft: "-2rem" }}
+//         >
+//           <h3 className="text-2xl font-bold text-white mb-4 underline">
+//             Creativity
+//           </h3>
+//           <p className="text-lg text-gray-700 text-white">
+//             We think outside the box to provide unique solutions.
+//           </p>
+//         </div>
+//         <div
+//           className="p-8 w-96 border-4 border-transparent bg-[#826abe] text-center rounded-lg w-1/2 -mt-8 z-0 
+//                      transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-blue-900 
+//                      animate-slide-in-right"
+//           style={{ marginRight: "-2rem" }}
+//         >
+//           <h3 className="text-2xl font-bold text-white mb-4 underline">
+//             Expertise
+//           </h3>
+//           <p className="text-lg text-gray-700 text-white">
+//             Our team has the expertise to deliver high-quality results.
+//           </p>
+//         </div>
+//       </div>
+
+//       {/* Bottom Two Cards */}
+//       <div className="flex gap-96 mt-[-50px] relative z-10 justify-center mb-24">
+//         <div
+//           className="p-8 border-4 border-transparent bg-[#b68cb8] text-center rounded-lg w-1/2 -mt-16 z-0 
+//                      transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-blue-900 
+//                      animate-slide-in-left"
+//           style={{ marginLeft: "-4rem" }}
+//         >
+//           <h3 className="text-2xl font-bold text-white mb-4 underline">
+//             Quality
+//           </h3>
+//           <p className="text-lg text-gray-700 text-white">
+//             We strive for excellence in everything we do.
+//           </p>
+//         </div>
+//         <div
+//           className="p-8 border-4 border-transparent bg-[#b68cb8] text-center rounded-lg w-1/2 -mt-16 z-0 
+//                      transform transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-blue-900 
+//                      animate-slide-in-right"
+//           style={{ marginRight: "-4rem" }}
+//         >
+//           <h3 className="text-2xl font-bold text-white mb-4 underline">
+//             Satisfaction
+//           </h3>
+//           <p className="text-lg text-gray-700 text-white">
+//             Our goal is to exceed our clients' expectations.
+//           </p>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default CardsLayout;
 
 
 

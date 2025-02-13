@@ -44,7 +44,7 @@ const AboutUsPage = () => {
     return (
         <div className="bg-gray-50">
             {/* Hero Section */}
-            <motion.section
+            {/* <motion.section
                 className="relative bg-cover bg-center h-screen opacity-50"
                 style={{
                     backgroundImage: "url('/images/aboutus_bg.jpg')"
@@ -52,21 +52,66 @@ const AboutUsPage = () => {
                 initial="hidden"
                 animate="visible"
                 variants={containerVarients}
-            >
-                {/* Background Overlay */}
-                <div className="absolute inset-0 bg-black opacity-50"></div>
+            > */}
+            {/* Background Overlay */}
+            {/* <div className="absolute inset-0 bg-black opacity-50"></div> */}
 
-                {/* Content */}
-                <div className="max-w-screen-xl mx-auto text-center items-center justify-center text-white relative px-6 md:px-8 lg:px-12 py-1">
-                    <CompanyHeader />
-                    <Header />
+            {/* Content */}
+            {/* <div className="max-w-screen-xl mx-auto text-center items-center justify-center text-white relative px-6 md:px-8 lg:px-12 py-1"> */}
+            {/* <CompanyHeader /> */}
+            {/* <Header /> */}
 
-                    {/* Main Heading motion.div */}
-                    <div className="justify-evenly text-right flex flex-row pt-12 ">
+            {/* Main Heading motion.div */}
+            {/* <div className="justify-evenly text-right flex flex-row pt-12 ">
                         <Image src="/images/40_Years_Image.png" alt="40 Years in Service" width={500} height={500} className='animate-image-lightning-bg overflow-hidden'/>
                         <div className='space-y-6'>
                             <motion.h1
-                                className="text-5xl font-bold leading-tight text-orange-500"
+                                className="text-5xl font-bold leading-tight text-blue-400"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.2, duration: 1 }}
+                            >
+                                About Us
+                            </motion.h1>
+                            <motion.p
+                                className="w-96 leading-relaxed text-balance hover:underline"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.3, duration: 1 }}
+                            >
+                                At Metatech, we’re not just a provider of Metallography solutions – we’re your trusted partner in materials
+                                analysis and innovation. With over 40 years of industry experience, we’ve honed our expertise to offer a comprehensive
+                                suite of services and facilities that empower our clients to achieve their goals with confidence.
+                            </motion.p>
+                        </div>
+                    </div>
+                </div>
+            </motion.section> */}
+            <motion.section
+                className="relative bg-cover bg-center h-screen opacity-50"
+                style={{ backgroundImage: "url('/images/aboutus_bg.jpg')" }}
+                initial="hidden"
+                animate="visible"
+                variants={containerVarients}
+            >
+                {/* Background Overlay with lower z-index */}
+                <div className="absolute inset-0 bg-black opacity-50 z-0"></div>
+
+                {/* Content Container with higher z-index */}
+                <div className="max-w-screen-xl mx-auto text-center items-center justify-center text-white relative px-6 md:px-8 lg:px-12 py-1 z-10">
+                    <Header />
+                    {/* Main Heading */}
+                    <div className="justify-evenly text-right flex flex-row pt-12">
+                        <Image
+                            src="/images/40_Years_Image.png"
+                            alt="40 Years in Service"
+                            width={500}
+                            height={500}
+                            className="animate-image-lightning-bg overflow-hidden"
+                        />
+                        <div className="space-y-6">
+                            <motion.h1
+                                className="text-5xl font-bold leading-tight text-blue-400"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.2, duration: 1 }}
@@ -88,6 +133,7 @@ const AboutUsPage = () => {
                 </div>
             </motion.section>
 
+
             {/* Vision and Mission Section */}
             <VisionMission />
 
@@ -100,7 +146,7 @@ const AboutUsPage = () => {
             >
                 <div className="md:w-1/2 text-left">
                     <motion.h2
-                        className="text-5xl font-bold text-orange-500"
+                        className="text-5xl font-bold text-blue-500"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.2, duration: 1 }}
@@ -108,7 +154,7 @@ const AboutUsPage = () => {
                         Our Experience
                     </motion.h2>
                     <motion.h3
-                        className="text-2xl font-bold text-orange-400 mt-2 hover:underline"
+                        className="text-2xl font-bold text-blue-400 mt-2 hover:underline"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.3, duration: 1 }}
@@ -127,7 +173,7 @@ const AboutUsPage = () => {
                     </motion.p>
                 </div>
                 <div className="md:w-1/2 flex justify-center mt-6 md:mt-0">
-                    <Image src="/images/experience.png" alt="Our Experiences" width={500} height={400} className='rounded-xl hover:scale-105 shadow-md transition-shadow duration-900'/>
+                    <Image src="/images/experience.png" alt="Our Experiences" width={500} height={400} className='rounded-xl hover:scale-105 shadow-md transition-shadow duration-900' />
                 </div>
             </motion.section>
 
@@ -139,7 +185,7 @@ const AboutUsPage = () => {
                 variants={scrollVariant}
             >
                 <motion.h2
-                    className="text-5xl font-bold text-orange-500"
+                    className="text-5xl font-bold text-blue-500"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.2, duration: 1 }}
@@ -153,9 +199,9 @@ const AboutUsPage = () => {
                         whileHover="hover"
                         variants={buttonVarients}
                     >
-                        <h3 className="text-lg font-bold text-orange-500">Metallography Analysis</h3>
+                        <h3 className="text-lg font-bold text-blue-500">Metallography Analysis</h3>
                         <p className="text-gray-600 mt-2">Detailed analysis of material properties through advanced metallography techniques.</p>
-                        <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">
+                        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
                             Learn More
                         </button>
                     </motion.div>
@@ -166,9 +212,9 @@ const AboutUsPage = () => {
                         whileHover="hover"
                         variants={buttonVarients}
                     >
-                        <h3 className="text-lg font-bold text-orange-500">Materials Testing</h3>
+                        <h3 className="text-lg font-bold text-blue-500">Materials Testing</h3>
                         <p className="text-gray-600 mt-2">Comprehensive testing services to assess material quality and performance under various conditions.</p>
-                        <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">
+                        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
                             Learn More
                         </button>
                     </motion.div>
@@ -179,16 +225,16 @@ const AboutUsPage = () => {
                         whileHover="hover"
                         variants={buttonVarients}
                     >
-                        <h3 className="text-lg font-bold text-orange-500">Consulting & Support</h3>
+                        <h3 className="text-lg font-bold text-blue-500">Consulting & Support</h3>
                         <p className="text-gray-600 mt-2">Expert consulting services to guide your projects and ensure optimal material choices.</p>
-                        <button className="mt-4 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition">
+                        <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
                             Learn More
                         </button>
                     </motion.div>
                 </div>
 
                 <motion.h1
-                    className="text-orange-500 text-xl font-bold hover:text-2xl mt-8 text-wrap"
+                    className="text-blue-500 text-xl font-bold hover:text-2xl mt-8 text-wrap"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5, duration: 1 }}

@@ -25,9 +25,9 @@ const Footer = () => {
             <div className="relative container mx-auto flex flex-wrap justify-evenly px-6 lg:px-10">
                 {/* Logo Section */}
                 <div className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-1/4">
-                    <div className="bg-white p-4 mb-4 rounded-lg transform transition duration-500 hover:scale-105">
+                    <a href="/"><div className="bg-white p-4 mb-4 rounded-lg transform transition duration-500 hover:scale-105">
                         <img src="/images/metatech_logo.png" alt="Metatech Logo" className="w-56" />
-                    </div>
+                    </div></a>
                     <div className="bg-gray-800 p-2 mt-2 rounded-lg text-center lg:w-64 lg:text-left px-8 py-4">
                         <h4 className="text-lg font-semibold text-white">Why Choose Us?</h4>
                         <p className="text-sm text-gray-400 mt-2">With decades of expertise, cutting-edge technology, and unparalleled customer service, Metatech Industries is your trusted partner.</p>
