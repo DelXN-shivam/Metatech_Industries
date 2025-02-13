@@ -13,11 +13,14 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.1",
     "@react-google-maps/api": "^2.20.5",
+    "card": "^2.5.4",
     "framer-motion": "^12.0.6",
+    "lucide-react": "^0.475.0",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-icons": "^5.4.0"
+    "react-icons": "^5.4.0",
+    "shadcn": "^2.3.0"
   },
   "devDependencies": {
     "postcss": "^8",

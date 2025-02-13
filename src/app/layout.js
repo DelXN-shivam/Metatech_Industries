@@ -24,7 +24,7 @@ export default function RootLayout({ children }) {
       <body
 
       >
-        
+        {/* <CompanyHeader /> */}
         {children}
       </body>
     </html>

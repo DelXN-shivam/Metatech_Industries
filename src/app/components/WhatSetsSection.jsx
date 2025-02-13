@@ -41,7 +41,7 @@ export default function WhatSetsUsApart() {
                 {features.slice(0, 3).map((feature, index) => (
                     <motion.div
                         key={index}
-                        className="flex flex-col items-center text-center p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                        className="flex flex-col items-center text-center p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg hover:bg-blue-100 transition-shadow duration-300"
                         variants={getAnimationVariant(index)}
                         initial="hidden"
                         whileInView="visible"
@@ -49,7 +49,7 @@ export default function WhatSetsUsApart() {
                         whileHover="hover"
                     >
                         <h3 className="font-bold text-lg text-gray-800">{feature.title}</h3>
-                        <span className="block w-20 h-1 bg-yellow-400 mt-1 mb-2"></span>
+                        <span className="block w-20 h-1 bg-blue-400 mt-1 mb-2"></span>
                         <p className="text-gray-600 max-w-[200px]">{feature.description}</p>
                     </motion.div>
                 ))}
@@ -60,7 +60,7 @@ export default function WhatSetsUsApart() {
                 {features.slice(3, 5).map((feature, index) => (
                     <motion.div
                         key={index}
-                        className="flex flex-col items-center text-center p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+                        className="flex flex-col items-center text-center p-6 bg-gray-100 rounded-lg shadow-md hover:shadow-lg hover:bg-blue-100 transition-shadow duration-300"
                         variants={getAnimationVariant(index)}
                         initial="hidden"
                         whileInView="visible"
@@ -68,7 +68,7 @@ export default function WhatSetsUsApart() {
                         whileHover="hover"
                     >
                         <h3 className="font-bold text-lg text-gray-800">{feature.title}</h3>
-                        <span className="block w-20 h-1 bg-yellow-400 mt-1 mb-2"></span>
+                        <span className="block w-20 h-1 bg-blue-400 mt-1 mb-2"></span>
                         <p className="text-gray-600 max-w-[200px]">{feature.description}</p>
                     </motion.div>
                 ))}

@@ -11,9 +11,18 @@ const Footer = () => {
     }, []);
 
     return (
-        <footer className={`bg-black text-white py-10 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="container mx-auto flex flex-wrap justify-evenly px-6 lg:px-10">
+        <footer
+            className={`relative text-white py-10 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+            style={{
+                backgroundImage: "url('/images/footer.png')", // Change this path to your image
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+            }}
+        >
+            <div className="absolute inset-0 bg-black bg-opacity-60"></div> {/* Dark overlay for better contrast */}
 
+            <div className="relative container mx-auto flex flex-wrap justify-evenly px-6 lg:px-10">
                 {/* Logo Section */}
                 <div className="flex flex-col items-center lg:items-start gap-2 w-full lg:w-1/4">
                     <div className="bg-white p-4 mb-4 rounded-lg transform transition duration-500 hover:scale-105">
@@ -48,7 +57,7 @@ const Footer = () => {
                 </div>
 
                 {/* Contact Us Section */}
-                <div className="w-full lg:w-1/4 bg-slate-700 px-10 -mt-3 pt-3 rounded-lg space-y-2">
+                <div className="w-full lg:w-1/4 bg-gray-800 px-10 -mt-3 pt-3 rounded-lg space-y-2">
                     <h3 className="text-lg font-bold mb-3">Contact Us</h3>
                     <p className="text-sm hover:underline hover:text-blue-400">
                         Cosmos Bank Bldg, 476, Laxmi Rd, Bhatancha Bol, Narayan Peth, Pune, Maharashtra 411030
@@ -70,7 +79,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='pt-12 text-center'>
+            
+            <div className='relative pt-12 text-center text-gray-300'>
                 © 2024 <span className='hover:text-blue-500'><a href="/#">Metatech Industries</a></span>.
                 All rights reserved. Managed by
                 <span className='hover:text-red-500'>

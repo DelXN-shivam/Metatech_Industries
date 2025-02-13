@@ -63,7 +63,7 @@ const ExpertiseSection = () => {
             variants={containerVariants}
         >
             {/* Title */}
-            <motion.h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center mt-10">
+            <motion.h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center mt-12">
                 Explore Our Expertise
             </motion.h2>
 
@@ -81,7 +81,7 @@ const ExpertiseSection = () => {
                             alt={item.title}
                             width={400}
                             height={300}
-                            className="w-full h-48 object-cover rounded-t-lg"
+                            className="w-full h-72 object-cover rounded-t-lg"
                         />
                         <div className="w-full p-4 bg-white rounded-b-lg hover:bg-slate-100">
                             <h3 className="text-lg font-semibold text-gray-800 text-center">
@@ -100,7 +100,7 @@ const ExpertiseSection = () => {
             >
                 <a
                     href="#"
-                    className="text-orange-500 font-bold text-lg flex items-center justify-center space-x-2 hover:underline sm:text-base md:text-lg lg:text-xl"
+                    className="text-blue-400 font-bold text-lg flex items-center justify-center space-x-2 hover:underline sm:text-base md:text-lg lg:text-xl"
                 >
                     <span>Explore More</span>
                     <motion.svg

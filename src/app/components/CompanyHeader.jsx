@@ -24,20 +24,22 @@ const CompanyHeader = () => {
     };
 
     return (
-        <div className=" p-4">
+        <div className="p-4 pl-0">
             <div className='flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0'>
                 {/* Logo */}
+                <a href="/">
                 <div className="bg-white p-4 rounded-lg">
                     <Image
                         src="/images/metatech_logo.png"
-                        width={200}
+                        width={250}
                         height={85}
                         alt="Metatech Logo"
                     />
                 </div>
+                </a>
 
                 {/* Contact Info */}
-                <div className="flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-4 md:space-y-0">
+                {/* <div className="flex flex-col md:flex-row items-center justify-center md:space-x-8 space-y-4 md:space-y-0">
                     <IconTexts
                         icon={FaPhoneVolume}
                         text1="Call Us"
@@ -53,7 +55,7 @@ const CompanyHeader = () => {
                         text1="Location"
                         text2="Narayan Peth, Cosmos Bank Building"
                     />
-                </div>
+                </div> */}
             </div>
         </div>
     );
