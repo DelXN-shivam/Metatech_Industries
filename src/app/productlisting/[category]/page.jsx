@@ -213,8 +213,7 @@ const ProductListing = () => {
         style={{
             backgroundImage: "url('/images/bg4.jpg')"
         }}>
-            <div className="px-32">
-                {/* <CompanyHeader /> */}
+            <div className="px-32 text-white">
                 <Header />
             </div>
             <div className="flex min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 my-10">

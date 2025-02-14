@@ -46,7 +46,7 @@ const HeroSection = () => {
                 variants={containerVarients}
             >
                 {/* Background Overlay */}
-                <div className="absolute inset-0 bg-gray-800 opacity-30"></div>
+                <div className="absolute inset-0 bg-gray-700 opacity-30"></div>
 
                 {/* Content */}
                 <div className="max-w-screen-xl mx-auto text-center text-white relative px-6 py-1">
@@ -60,16 +60,16 @@ const HeroSection = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: 'easeOut' }}
                     >
-                        <h1 className=" text-2xl md:text-5xl lg:text-4xl font-bold leading-tight pt-10">
+                        <h1 className=" text-2xl md:text-5xl lg:text-4xl font-bold leading-tight pt-10 text-blue-800">
                             Most Advanced Machinery
                         </h1>
-                        <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold pt-4 leading-tight">
+                        <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold pt-4 leading-tight text-blue-800">
                             MECHANICAL COMPANY
                         </h1>
-                        <h3 className="font-semibold text-lg md:text-xl lg:pt-4">
+                        <h3 className="font-semibold text-lg md:text-xl lg:pt-4 text-black">
                             Real Measuring System,
                         </h3>
-                        <h3 className="font-semibold text-lg md:text-xl">
+                        <h3 className="font-semibold text-lg md:text-xl text-black">
                             Reliability, and Performance
                         </h3>
                     </motion.div>

@@ -20,7 +20,10 @@ export default {
         desktopxl:{'min': '1367px', 'max': '1920px'},
         desktop2xl:{'min': '1921px', 'max': '2560px'},
 
-      }
+      },
+      fontFamily: {
+        zilla: ['Zilla Slab Highlight'],
+      },
     },
   },
   plugins: [],
