@@ -49,7 +49,7 @@ export default function WhatSetsUsApart() {
                         whileHover="hover"
                     >
                         <h3 className="font-bold text-lg text-gray-800">{feature.title}</h3>
-                        <span className="block w-20 h-1 bg-blue-400 mt-1 mb-2"></span>
+                        <span className="block w-20 h-1 bg-[#0f7db7] mt-1 mb-2"></span>
                         <p className="text-gray-600 max-w-[200px]">{feature.description}</p>
                     </motion.div>
                 ))}
@@ -68,7 +68,7 @@ export default function WhatSetsUsApart() {
                         whileHover="hover"
                     >
                         <h3 className="font-bold text-lg text-gray-800">{feature.title}</h3>
-                        <span className="block w-20 h-1 bg-blue-400 mt-1 mb-2"></span>
+                        <span className="block w-20 h-1 bg-[#0f7db7] mt-1 mb-2"></span>
                         <p className="text-gray-600 max-w-[200px]">{feature.description}</p>
                     </motion.div>
                 ))}

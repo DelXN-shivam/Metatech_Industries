@@ -1,10 +1,10 @@
 'use client';
 
-import CompanyHeader from './CompanyHeader';
+import CompanyHeader from './CompanyLogo';
 import Header from './Header';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
-import ImageScrolling from '../components/ImageScrolling' 
+import ImageScrolling from '../components/ImageScrolling'
 
 const HeroSection = () => {
 
@@ -35,11 +35,7 @@ const HeroSection = () => {
             <motion.section
                 className="relative bg-contain bg-center h-full"
                 style={{
-                    // backgroundImage: "url('/images/bg5.jpg')"
-                    // backgroundImage: "url('/images/bg1.jpg')"
-                    // backgroundImage: "url('/images/bg7.jpg')"
                     backgroundImage: "url('/images/bg8.jpg')"
-                    // backgroundImage: "url('/images/main_new_bg.jpg')"
                 }}
                 initial="hidden"
                 animate="visible"
@@ -51,7 +47,7 @@ const HeroSection = () => {
                 {/* Content */}
                 <div className="max-w-screen-xl mx-auto text-center text-white relative px-6 py-1">
                     {/* <CompanyHeader /> */}
-                    <Header />
+                    {/* <Header /> */}
 
                     {/* Main Heading motion.section */}
                     <motion.div
@@ -60,10 +56,10 @@ const HeroSection = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1.2, ease: 'easeOut' }}
                     >
-                        <h1 className=" text-2xl md:text-5xl lg:text-4xl font-bold leading-tight pt-10 text-blue-800">
+                        <h1 className=" text-2xl md:text-5xl lg:text-4xl font-bold leading-tight pt-10 text-[#0f7db7]">
                             Most Advanced Machinery
                         </h1>
-                        <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold pt-4 leading-tight text-blue-800">
+                        <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold pt-4 leading-tight text-[#0f7db7]">
                             MECHANICAL COMPANY
                         </h1>
                         <h3 className="font-semibold text-lg md:text-xl lg:pt-4 text-black">
@@ -76,18 +72,21 @@ const HeroSection = () => {
                     <ImageScrolling />
                 </div>
             </motion.section>
-            
+
             <motion.div
-                className="absolute inset-x-0 bottom-24 transform -translate-x-1/2 flex sm:flex-row items-center justify-center space-y-4 sm:space-y-0 z-10"
+                className="relative"
                 initial="hidden"
                 animate="visible"
                 variants={containerVarients}
             >
-                <div className="bg-blue-400 text-white font-semibold px-6 py-4 text-lg w-80 text-center shadow-lg">
-                    40 Years of Undefeated Success
-                </div>
-                <div className="bg-gray-500 text-white font-semibold px-10 py-4 text-lg w-80 text-center shadow-lg">
-                    <a href="/aboutus">Explore Us !</a>
+
+                <div className="flex justify-center -mt-[35px]">
+                    <div className="bg-[#0f7db7] text-white font-semibold px-12 py-4 text-lg w-[360px] text-center">
+                        40 years of Undefeated Success
+                    </div>
+                    <div className="bg-gray-700 text-white font-semibold px-12 py-4 text-lg w-[300px] text-center">
+                        <a href="/aboutus">Explore US</a>
+                    </div>
                 </div>
             </motion.div>
         </div>

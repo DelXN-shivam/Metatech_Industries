@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import CompanyHeader from '../components/CompanyHeader';
+import CompanyHeader from '../components/CompanyLogo';
 import Header from '../components/Header';
 import { motion } from 'framer-motion';
 import Footer from '../components/Footer';

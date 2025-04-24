@@ -6,13 +6,12 @@ import OurServicesSection from "./components/OurServicesSection";
 import WhatSetsSection from "./components/WhatSetsSection";
 import Footer from "./components/Footer";
 import QueryAndMap from "./components/QueryAndMap";
-import TeamAndBlog from "./aboutus/page";
-import AboutUsPage from "./aboutus/page";
-import VisionMission from "./components/VisionAndCoreValues";
 
 const Home = () => {
   return (
     <div className="font-sans bg-gray-50 text-gray-900">
+      {/* <CompanyHeader /> */}
+      <Header />
 
       {/* Hero Section */}
       <HeroSection />

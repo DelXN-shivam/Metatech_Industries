@@ -74,7 +74,7 @@ const QueryAndMap = () => {
                         variants={rightAnimation}
                     >
                         <div className="w-full">
-                            <h2 className="text-2xl font-semibold mb-6 text-center lg:text-left transform transition duration-500 hover:text-blue-400">
+                            <h2 className="text-2xl font-semibold mb-6 text-center lg:text-left transform transition duration-500 hover:text-[#0f7db7]">
                                 Request for a Machine
                             </h2>
                             <form className="space-y-4">
@@ -83,35 +83,35 @@ const QueryAndMap = () => {
                                     <input
                                         type="text"
                                         placeholder="Your Name"
-                                        className="border border-blue-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-transform duration-300 hover:scale-105"
+                                        className="border border-[#0f7db7] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] transition-transform duration-300 hover:scale-105"
                                     />
                                     <input
                                         type="email"
                                         placeholder="Email"
-                                        className="border border-blue-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-transform duration-300 hover:scale-105"
+                                        className="border border-[#0f7db7] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] transition-transform duration-300 hover:scale-105"
                                     />
                                     <input
                                         type="text"
                                         placeholder="Phone"
-                                        className="border border-blue-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-transform duration-300 hover:scale-105"
+                                        className="border border-[#0f7db7] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] transition-transform duration-300 hover:scale-105"
                                     />
                                     <input
                                         type="text"
                                         placeholder="Product"
-                                        className="border border-blue-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-transform duration-300 hover:scale-105"
+                                        className="border border-[#0f7db7] rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] transition-transform duration-300 hover:scale-105"
                                     />
                                 </div>
 
                                 {/* Textarea */}
                                 <textarea
                                     placeholder="Describe the product"
-                                    className="border border-blue-300 rounded-md p-2 mt-4 w-full h-24 focus:outline-none focus:ring-2 focus:ring-blue-400 transition-transform duration-300 hover:scale-105"
+                                    className="border border-[#0f7db7] rounded-md p-2 mt-4 w-full h-24 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] transition-transform duration-300 hover:scale-105"
                                 ></textarea>
 
                                 {/* Submit Button */}
                                 <button
                                     type="submit"
-                                    className="bg-blue-400 text-white font-semibold py-2 px-6 rounded-md mt-4 w-full hover:bg-blue-500 transition-all duration-300 transform hover:scale-105 shadow-md"
+                                    className="bg-[#0f7db7] text-white font-semibold py-2 px-6 rounded-md mt-4 w-full hover:bg-[#0f7db7] transition-all duration-300 transform hover:scale-105 shadow-md"
                                 >
                                     Send Message
                                 </button>
