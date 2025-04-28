@@ -1,9 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { ChevronLeft, ChevronRight, Phone, Mail, FileText, BookOpen, FlaskConical, Download, ArrowRight, MessageSquareText } from 'lucide-react';
 import { IoIosArrowForward } from 'react-icons/io';
-import { useRouter, useParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 
@@ -94,7 +95,7 @@ export default function GrindingPolishingPage() {
         const maxSlide = products.length > 4 ? products.length - 4 : products.length - 2;
         return prev >= maxSlide ? 0 : prev + 1;
       });
-    }, 500);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, [products.length]);
@@ -278,7 +279,7 @@ export default function GrindingPolishingPage() {
                        border border-transparent hover:border-[#0f7db7]/20
                        flex items-center"
                         >
-                          <Link to={subItem.apiCall} className="flex items-center w-full">
+                          <Link href={subItem.apiCall} className="flex items-center w-full">
                             <span className="w-1.5 h-1.5 bg-[#4babe5] rounded-full mr-3"></span>
                             {subItem.name}
                           </Link>
