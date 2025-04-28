@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Phone, Mail, FileText, BookOpen, FlaskConical, Download } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Phone, Mail, FileText, BookOpen, FlaskConical, Download, ArrowRight, MessageSquareText } from 'lucide-react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { useRouter, useParams } from 'next/navigation';
 import Header from '@/app/components/Header';
@@ -44,7 +44,7 @@ export default function GrindingPolishingPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentInfoSlide((prev) => (prev === totalInfoSlides - 1 ? 0 : prev + 1));
-    }, 5000); // Change slide every 5 seconds
+    }, 1000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
   }, [totalInfoSlides]);
@@ -88,23 +88,13 @@ export default function GrindingPolishingPage() {
     }
   ];
 
-  const totalProductSlides = products.length;
-
-  const nextProductSlide = () => {
-    setCurrentProductSlide((prev) => (prev === totalProductSlides - 1 ? 0 : prev + 1));
-  };
-
-  const prevProductSlide = () => {
-    setCurrentProductSlide((prev) => (prev === 0 ? totalProductSlides - 1 : prev - 1));
-  };
-
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentProductSlide((prev) => {
         const maxSlide = products.length > 4 ? products.length - 4 : products.length - 2;
         return prev >= maxSlide ? 0 : prev + 1;
       });
-    }, 3000);
+    }, 500);
 
     return () => clearInterval(interval);
   }, [products.length]);
@@ -114,78 +104,132 @@ export default function GrindingPolishingPage() {
 
   const items = [
     {
-      id: 1, name: "Automatic Cutting Machines", subItems: ["Automatic Cutting Machines - Auto Cut",
-        "Automatic Cutting Machines - Auto-S",
-        "Automatic Cutting Machines - MetaCut",
-        "Oscillating Abrasive Cut-off Machines",
-        "Metacut-I",
-        "Tube Cutting Machines"]
+      id: 1,
+      name: "Automatic Cutting Machines",
+      subItems: [
+        { name: "Automatic Cutting Machines - Auto Cut", apiCall: "/api/automatic-cutting/auto-cut" },
+        { name: "Automatic Cutting Machines - Auto-S", apiCall: "/api/automatic-cutting/auto-s" },
+        { name: "Automatic Cutting Machines - MetaCut", apiCall: "/api/automatic-cutting/metacut" },
+        { name: "Oscillating Abrasive Cut-off Machines", apiCall: "/api/automatic-cutting/oscillating-abrasive" },
+        { name: "Metacut-I", apiCall: "/api/automatic-cutting/metacut-i" },
+        { name: "Tube Cutting Machines", apiCall: "/api/automatic-cutting/tube-cutting" }
+      ]
     },
     {
-      id: 2, name: "Microscope and Image Analyzer", subItems: ["Inverted Microscope",
-        "Inverted Microscope - Metagraph",
-        "Upright Microscope",
-        "Stereo Microscope"]
+      id: 2,
+      name: "Microscope and Image Analyzer",
+      subItems: [
+        { name: "Inverted Microscope", apiCall: "/api/microscope/inverted" },
+        { name: "Inverted Microscope - Metagraph", apiCall: "/api/microscope/metagraph" },
+        { name: "Upright Microscope", apiCall: "/api/microscope/upright" },
+        { name: "Stereo Microscope", apiCall: "/api/microscope/stereo" }
+      ]
     },
     {
-      id: 3, name: "Automatic Micro Hardness Tester", subItems: ["MHT - (MVH-1000)"
-        , "MHT - (MVH-1C)",
-        "MHT - (MVMH)",
-        "Repair & MHT"]
+      id: 3,
+      name: "Automatic Micro Hardness Tester",
+      subItems: [
+        { name: "MHT - (MVH-1000)", apiCall: "/api/hardness-tester/mvh-1000" },
+        { name: "MHT - (MVH-1C)", apiCall: "/api/hardness-tester/mvh-1c" },
+        { name: "MHT - (MVMH)", apiCall: "/api/hardness-tester/mvmh" },
+        { name: "Repair & MHT", apiCall: "/api/hardness-tester/repair" }
+      ]
     },
     {
-      id: 4, name: "Diamond Cutting Machines", subItems: ["DCM", "HI Speed DCM"]
+      id: 4,
+      name: "Diamond Cutting Machines",
+      subItems: [
+        { name: "DCM", apiCall: "/api/diamond-cutting/dcm" },
+        { name: "HI Speed DCM", apiCall: "/api/diamond-cutting/hi-speed-dcm" }
+      ]
     },
     {
-      id: 5, name: "Image Analyzer", subItems: ["Grain Analysis",
-        "Plainmetry Method",
-        "Phase Analysis",
-        "Graphite",
-        "Point Counter",
-        "Inclusion"]
+      id: 5,
+      name: "Image Analyzer",
+      subItems: [
+        { name: "Grain Analysis", apiCall: "/api/image-analyzer/grain-analysis" },
+        { name: "Planimetry Method", apiCall: "/api/image-analyzer/planimetry" },
+        { name: "Phase Analysis", apiCall: "/api/image-analyzer/phase-analysis" },
+        { name: "Graphite", apiCall: "/api/image-analyzer/graphite" },
+        { name: "Point Counter", apiCall: "/api/image-analyzer/point-counter" },
+        { name: "Inclusion", apiCall: "/api/image-analyzer/inclusion" }
+      ]
     },
     {
-      id: 6, name: "Hardness Tester", subItems: ["Portable Vickers Hardness Tester",
-        "Portable Brinell Hardness Tester",
-        "Rockwell Hardness Tester",
-        "Brinell Hardness Tester",
-        "Leeb Hardness Tester"]
+      id: 6,
+      name: "Hardness Tester",
+      subItems: [
+        { name: "Portable Vickers Hardness Tester", apiCall: "/api/hardness-tester/portable-vickers" },
+        { name: "Portable Brinell Hardness Tester", apiCall: "/api/hardness-tester/portable-brinell" },
+        { name: "Rockwell Hardness Tester", apiCall: "/api/hardness-tester/rockwell" },
+        { name: "Brinell Hardness Tester", apiCall: "/api/hardness-tester/brinell" },
+        { name: "Leeb Hardness Tester", apiCall: "/api/hardness-tester/leeb" }
+      ]
     },
     {
-      id: 7, name: "Image Analyzer", subItems: ["Grain Analysis", "Planimetry Method", "Phase Analysis", "Graphite", "Point Counter", "Inclusion"]
+      id: 7,
+      name: "Image Analyzer",
+      subItems: [
+        { name: "Grain Analysis", apiCall: "/api/image-analyzer/grain-analysis" },
+        { name: "Planimetry Method", apiCall: "/api/image-analyzer/planimetry" },
+        { name: "Phase Analysis", apiCall: "/api/image-analyzer/phase-analysis" },
+        { name: "Graphite", apiCall: "/api/image-analyzer/graphite" },
+        { name: "Point Counter", apiCall: "/api/image-analyzer/point-counter" },
+        { name: "Inclusion", apiCall: "/api/image-analyzer/inclusion" }
+      ]
     },
     {
-      id: 8, name: "Moulding Machines", subItems: ["Moulding Machine - Automount E",
-        "Electro Hydraulic Press - Automount EH",
-        "Pneumatic Press - Automount",
-        "Transparent Mould Making Machine"]
+      id: 8,
+      name: "Moulding Machines",
+      subItems: [
+        { name: "Moulding Machine - Automount E", apiCall: "/api/moulding/automount-e" },
+        { name: "Electro Hydraulic Press - Automount EH", apiCall: "/api/moulding/automount-eh" },
+        { name: "Pneumatic Press - Automount", apiCall: "/api/moulding/automount-pneumatic" },
+        { name: "Transparent Mould Making Machine", apiCall: "/api/moulding/transparent" }
+      ]
     },
     {
-      id: 9, name: "Grinding Machines", subItems: ["Metapol DC II",
-        "Semi-Automatic Grinding Polishing",
-        "Multi-Specimen Grinding Machine",
-        "Heavy Duty Belt Grinder",
-        "Belt Grinder"]
+      id: 9,
+      name: "Grinding Machines",
+      subItems: [
+        { name: "Metapol DC II", apiCall: "/api/grinding/metapol-dc-ii" },
+        { name: "Semi-Automatic Grinding Polishing", apiCall: "/api/grinding/semi-automatic" },
+        { name: "Multi-Specimen Grinding Machine", apiCall: "/api/grinding/multi-specimen" },
+        { name: "Heavy Duty Belt Grinder", apiCall: "/api/grinding/heavy-duty-belt" },
+        { name: "Belt Grinder", apiCall: "/api/grinding/belt" }
+      ]
     },
     {
-      id: 10, name: "Particle Size Analysis System", subItems: ["PSAS - Stereo Microscope",
-        "PSAS - Metallurgical Microscope",
-        "Component Cleaning Machine"]
+      id: 10,
+      name: "Particle Size Analysis System",
+      subItems: [
+        { name: "PSAS - Stereo Microscope", apiCall: "/api/particle-size/stereo-microscope" },
+        { name: "PSAS - Metallurgical Microscope", apiCall: "/api/particle-size/metallurgical-microscope" },
+        { name: "Component Cleaning Machine", apiCall: "/api/particle-size/component-cleaning" }
+      ]
     },
     {
-      id: 11, name: "Hardness Test Block Diamond Indenters", subItems: ["Rockwell",
-        "Rockwell Superficial",
-        "Vickers",
-        "Micro Vickers",
-        "Brinell",
-        "Aluminium Test Blocks"]
+      id: 11,
+      name: "Hardness Test Block Diamond Indenters",
+      subItems: [
+        { name: "Rockwell", apiCall: "/api/hardness-test-block/rockwell" },
+        { name: "Rockwell Superficial", apiCall: "/api/hardness-test-block/rockwell-superficial" },
+        { name: "Vickers", apiCall: "/api/hardness-test-block/vickers" },
+        { name: "Micro Vickers", apiCall: "/api/hardness-test-block/micro-vickers" },
+        { name: "Brinell", apiCall: "/api/hardness-test-block/brinell" },
+        { name: "Aluminium Test Blocks", apiCall: "/api/hardness-test-block/aluminium" }
+      ]
     },
     {
-      id: 12, name: "In-situ Metallography Kit", subItems: ["Portable Grinder",
-        "Portable Electro Polisher",
-        "Replica",
-        "Portable Microscope Image Analyzer"]
-    },
+      id: 12,
+      name: "In-situ Metallography Kit",
+      subItems: [
+        { name: "Portable Grinder", apiCall: "/api/metallography/portable-grinder" },
+        { name: "Portable Electro Polisher", apiCall: "/api/metallography/portable-electro-polisher" },
+        { name: "Replica", apiCall: "/api/metallography/replica" },
+        { name: "Portable Microscope Image Analyzer", apiCall: "/api/metallography/portable-microscope" }
+      ]
+    }
   ];
 
   const toggleSublist = (index) => {
@@ -209,9 +253,9 @@ export default function GrindingPolishingPage() {
                 <li key={item.id} className="group">
                   <button
                     className="w-full text-left p-4 rounded-xl transition-all duration-300 
-                                    hover:bg-[#0f7db7]/10 text-gray-700 hover:text-[#0f7db7] font-medium
-                                    flex items-center justify-between group-hover:translate-x-1
-                                    border border-transparent hover:border-[#0f7db7]/20"
+                 hover:bg-[#0f7db7]/10 text-gray-700 hover:text-[#0f7db7] font-medium
+                 flex items-center justify-between group-hover:translate-x-1
+                 border border-transparent hover:border-[#0f7db7]/20"
                     onClick={() => toggleSublist(index)}
                   >
                     <div className="flex items-center">
@@ -227,14 +271,17 @@ export default function GrindingPolishingPage() {
                   {openIndex === index && (
                     <ul className="mt-2 ml-8 space-y-2">
                       {item.subItems.map((subItem, subIndex) => (
-                        <li key={subIndex}
+                        <li
+                          key={subIndex}
                           className="px-4 py-2.5 rounded-lg text-gray-600 hover:text-[#0f7db7] 
-                                                hover:bg-[#0f7db7]/10 transition-all duration-300 cursor-pointer
-                                                border border-transparent hover:border-[#0f7db7]/20
-                                                flex items-center"
+                       hover:bg-[#0f7db7]/10 transition-all duration-300 cursor-pointer
+                       border border-transparent hover:border-[#0f7db7]/20
+                       flex items-center"
                         >
-                          <span className="w-1.5 h-1.5 bg-[#4babe5] rounded-full mr-3"></span>
-                          {subItem}
+                          <Link to={subItem.apiCall} className="flex items-center w-full">
+                            <span className="w-1.5 h-1.5 bg-[#4babe5] rounded-full mr-3"></span>
+                            {subItem.name}
+                          </Link>
                         </li>
                       ))}
                     </ul>
@@ -283,181 +330,223 @@ export default function GrindingPolishingPage() {
               </div>
             </div>
 
-            {/* Intro Section with Carousel */}
+            {/* Modern Intro Section with Stacked Card Design - Positions Switched */}
             <div className="mb-24">
-              <div className="flex flex-col md:flex-row gap-8">
-                <div className="md:w-1/2">
-                  <p className="text-[#0f7db7] text-sm font-medium mb-2">Browse our easy to use solutions</p>
-                  <h2 className="text-2xl md:text-3xl font-bold text-[#0f7db7] mb-6 border-b-4 border-[#0f7db7] pb-2 inline-block">
-                    Grinding and Polishing Made Simple
-                  </h2>
-                  <p className="text-gray-700 mb-6 leading-relaxed">
-                    The most important step in the preparation of a good sample is a specialty at Buehler. Choose between our various grinding and polishing equipment for the application right for your laboratory. Combined with the right polishing suspensions and fluids, Buehler will create the best possible surface finish for your analysis.
-                  </p>
-                </div>
-
-                <div className="md:w-1/2 relative">
-                  <div className="overflow-hidden rounded-xl shadow-2xl">
-                    <div
-                      className="flex transition-transform duration-500 ease-in-out"
-                      style={{
-                        transform: `translateX(-${currentInfoSlide * 100}%)`,
-                      }}
-                    >
-                      {slides.map((slide, index) => (
-                        <div
-                          key={slide.id}
-                          className="w-full flex-shrink-0"
-                          style={{ minWidth: '100%' }}
-                        >
-                          <div className="flex flex-col md:flex-row">
-                            {/* Image Section */}
-                            <div className="w-full md:w-1/2 h-64 md:h-80 relative">
-                              <img
-                                src={slide.image}
-                                alt={slide.alt}
-                                className="w-full h-full object-cover"
-                                loading="lazy"
-                              />
-                              <div className="absolute inset-0 bg-[#0f7db7] opacity-20"></div>
+              <div className="flex flex-col lg:flex-row gap-12 items-start">
+                {/* Image Carousel - Now on the LEFT side */}
+                <div className="lg:w-1/2 w-full relative">
+                  <div className="relative">
+                    {/* Main Featured Card */}
+                    <div className="bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl">
+                      <div className="relative h-48">
+                        <img
+                          src={slides[currentInfoSlide].image}
+                          alt={slides[currentInfoSlide].alt}
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+                        <span className="absolute top-4 left-4 bg-white/90 text-[#0f7db7] text-xs font-semibold px-3 py-1 rounded-full">
+                          {slides[currentInfoSlide].category}
+                        </span>
+                      </div>
+                      <div className="p-6">
+                        <h3 className="text-xl font-bold text-gray-800 mb-3">{slides[currentInfoSlide].title}</h3>
+                        <p className="text-gray-600 mb-6">{slides[currentInfoSlide].description}</p>
+                        <div className="flex justify-between items-center">
+                          <button className="bg-[#0f7db7] hover:bg-[#4babe5] text-white font-medium py-2 px-6 rounded-lg transition-all duration-300 hover:shadow-md">
+                            Learn More
+                          </button>
+                          <div className="flex items-center">
+                            <div className="flex text-yellow-400 mr-2">
+                              {[...Array(5)].map((_, i) => (
+                                <span key={i}>
+                                  {i < Math.floor(slides[currentInfoSlide].rating) ? '★' : '☆'}
+                                </span>
+                              ))}
                             </div>
-
-                            {/* Info Section */}
-                            <div className="w-full md:w-1/2 bg-gradient-to-b from-[#0f7db7]/10 to-white p-6 md:p-8 flex flex-col justify-center">
-                              <span className="inline-block bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-2">
-                                {slide.category}
-                              </span>
-
-                              <h3 className="text-xl font-bold text-gray-800 mb-3">{slide.title}</h3>
-
-                              <p className="text-sm text-gray-600 mb-6">
-                                {slide.description}
-                              </p>
-
-                              <button
-                                className="text-sm w-fit bg-[#0f7db7] hover:bg-[#4babe5] text-white font-medium py-2 px-4 rounded-full transition duration-300 transform hover:scale-105 shadow-md focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2"
-                                aria-label={`Learn more about ${slide.title}`}
-                              >
-                                Learn More →
-                              </button>
-
-                              <div className="mt-4 flex items-center">
-                                <div className="flex text-yellow-400" aria-hidden="true">
-                                  {[...Array(5)].map((_, i) => (
-                                    <span key={i}>
-                                      {i < Math.floor(slide.rating) ? '★' : '☆'}
-                                    </span>
-                                  ))}
-                                </div>
-                                <span className="ml-2 text-gray-500 text-sm">({slide.reviews} reviews)</span>
-                              </div>
-                            </div>
+                            <span className="text-gray-500 text-sm">({slides[currentInfoSlide].reviews})</span>
                           </div>
                         </div>
-                      ))}
+                      </div>
+                    </div>
+
+                    {/* Navigation and Thumbnails */}
+                    <div className="mt-8">
+                      <div className="flex justify-between items-center mb-4">
+                        <h3 className="text-lg font-semibold text-gray-800">Featured Solutions</h3>
+                        <div className="flex space-x-2">
+                          <button
+                            onClick={prevInfoSlide}
+                            className="w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-[#0f7db7]/10 hover:border-[#0f7db7]/50 transition-all"
+                            aria-label="Previous slide"
+                          >
+                            <ChevronLeft className="text-gray-600" size={18} />
+                          </button>
+                          <button
+                            onClick={nextInfoSlide}
+                            className="w-10 h-10 flex items-center justify-center bg-white border border-gray-200 rounded-full hover:bg-[#0f7db7]/10 hover:border-[#0f7db7]/50 transition-all"
+                            aria-label="Next slide"
+                          >
+                            <ChevronRight className="text-gray-600" size={18} />
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-3 gap-4">
+                        {slides.map((slide, index) => (
+                          <button
+                            key={slide.id}
+                            onClick={() => setCurrentInfoSlide(index)}
+                            className={`relative h-24 rounded-xl overflow-hidden transition-all duration-300 ${currentInfoSlide === index ? 'ring-2 ring-[#0f7db7]' : 'opacity-80 hover:opacity-100'}`}
+                            aria-label={`View ${slide.title}`}
+                          >
+                            <img
+                              src={slide.image}
+                              alt={slide.alt}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className={`absolute inset-0 ${currentInfoSlide === index ? 'bg-black/20' : 'bg-black/30'}`}></div>
+                            <span className="absolute bottom-2 left-2 text-white text-xs font-medium truncate w-[calc(100%-16px)]">
+                              {slide.title}
+                            </span>
+                          </button>
+                        ))}
+                      </div>
                     </div>
                   </div>
+                </div>
 
-                  <button
-                    onClick={prevInfoSlide}
-                    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#0f7db7]/10 transition-all rounded-full p-2 shadow-lg text-gray-800 hover:text-[#0f7db7] focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2"
-                    aria-label="Previous slide"
-                  >
-                    <ChevronLeft size={24} />
-                  </button>
-                  <button
-                    onClick={nextInfoSlide}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#0f7db7]/10 transition-all rounded-full p-2 shadow-lg text-gray-800 hover:text-[#0f7db7] focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2"
-                    aria-label="Next slide"
-                  >
-                    <ChevronRight size={24} />
-                  </button>
+                {/* Text Content ("Browse our solutions") - Now on the RIGHT side */}
+                <div className="lg:w-1/2">
+                  <span className="inline-block bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
+                    Browse our solutions
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#0f7db7] mb-6 relative pb-3">
+                    Grinding and Polishing Made Simple
+                  </h2>
+                  <p className="text-gray-700 mb-8 leading-relaxed text-lg">
+                    The most important step in the preparation of a good sample is a specialty at Buehler. Choose between our various grinding and polishing equipment for the application right for your laboratory.
+                  </p>
+                  <div className="flex flex-wrap gap-4">
+                    <button className="bg-[#0f7db7] hover:bg-[#4babe5] text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg">
+                      Explore Products
+                    </button>
+                    <button className="border border-[#0f7db7] text-[#0f7db7] hover:bg-[#0f7db7]/10 px-6 py-3 rounded-lg font-medium transition-all duration-300">
+                      Contact Experts
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Semi-Automatic Section */}
-            <div className="mb-24">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0f7db7] mb-6 border-b-4 border-[#0f7db7] pb-2 inline-block">
-                Semi-Automatic Grinder Polishers
-              </h2>
-              <p className="text-gray-700 mb-10 max-w-4xl leading-relaxed">
-                Process multiple samples automatically to increase throughput while freeing up users for other tasks.
-                Automatic processing also ensures good and consistent sample quality cycle to cycle.
-              </p>
+            {/* Semi-Automatic Section with Card Grid */}
+            <div className="mb-28">
+              <div className="text-center mb-16">
+                <span className="inline-block bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
+                  Our Products
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold text-[#0f7db7] mb-4">
+                  Semi-Automatic Grinder Polishers
+                </h2>
+                <div className="max-w-3xl mx-auto">
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    Process multiple samples automatically to increase throughput while freeing up users for other tasks.
+                    Automatic processing ensures consistent sample quality cycle to cycle.
+                  </p>
+                </div>
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* AutoMet 250 */}
-                <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white group">
-                  <div className="p-6 flex flex-col h-full">
-                    <h3 className="text-xl font-bold text-[#0f7db7] mb-6 text-center group-hover:text-[#4babe5] transition-colors duration-300">AutoMet® 250</h3>
-                    <div className="flex-grow flex flex-col items-center mb-6">
-                      <div className="relative overflow-hidden rounded-lg mb-6 group-hover:shadow-md transition-all duration-300">
-                        <img
-                          src="/productsListing/AutoMet-300.png"
-                          alt="AutoMet 250"
-                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                        Designed for medium to high volume environments, this versatile grinder polisher comes with a membrane control panel. Its 10" (250mm) diameter platen is 8" (203mm) in diameter and is compatible with up to 6 burst modules for automating individual polishing steps.
-                      </p>
+                <div className="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                  <div className="relative h-60 overflow-hidden">
+                    <img
+                      src="/productsListing/AutoMet-300.png"
+                      alt="AutoMet 250"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-xl font-bold text-[#0f7db7]">AutoMet® 250</h3>
+                      <span className="bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-2 py-1 rounded">10" Platen</span>
                     </div>
-                    <div className="mt-auto text-center">
-                      <button className="bg-[#0f7db7] hover:bg-[#4babe5] transition-all duration-300 text-white px-6 py-2 rounded-lg font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2">
-                        AutoMet 250 Page
+
+                    <p className="text-gray-600 mb-6">
+                      Designed for medium to high volume environments, this versatile grinder polisher comes with a membrane control panel.
+                    </p>
+
+                    <div className="flex justify-between items-center">
+                      <button className="text-[#0f7db7] hover:text-[#4babe5] font-medium flex items-center transition-colors duration-300">
+                        View Details
+                        <ArrowRight className="ml-2" size={16} />
                       </button>
+                      <span className="text-xs text-gray-500">6 burst modules</span>
                     </div>
                   </div>
                 </div>
 
                 {/* AutoMet 250 Pro */}
-                <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white group">
-                  <div className="p-6 flex flex-col h-full">
-                    <h3 className="text-xl font-bold text-[#0f7db7] mb-6 text-center group-hover:text-[#4babe5] transition-colors duration-300">AutoMet® 250 Pro</h3>
-                    <div className="flex-grow flex flex-col items-center mb-6">
-                      <div className="relative overflow-hidden rounded-lg mb-6 group-hover:shadow-md transition-all duration-300">
-                        <img
-                          src="/api/placeholder/160/180"
-                          alt="AutoMet 250 Pro"
-                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                        Designed for medium to high volume environments, this advanced machine features an intuitive touch screen interface. Program every step of the process to achieve unparalleled accuracy and consistency. Its 10" (250mm) platen is ideal for samples up to 10" (250mm) in diameter and compatible with up to 8 burst modules for automating individual polishing steps.
-                      </p>
+                <div className="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                  <div className="relative h-60 overflow-hidden">
+                    <img
+                      src="/api/placeholder/160/180"
+                      alt="AutoMet 250 Pro"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-xl font-bold text-[#0f7db7]">AutoMet® 250 Pro</h3>
+                      <span className="bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-2 py-1 rounded">Touch Screen</span>
                     </div>
-                    <div className="mt-auto text-center">
-                      <button className="bg-[#0f7db7] hover:bg-[#4babe5] transition-all duration-300 text-white px-6 py-2 rounded-lg font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2">
-                        AutoMet 250 Pro Page
+
+                    <p className="text-gray-600 mb-6">
+                      Features an intuitive touch screen interface. Program every step of the process to achieve unparalleled accuracy.
+                    </p>
+
+                    <div className="flex justify-between items-center">
+                      <button className="text-[#0f7db7] hover:text-[#4babe5] font-medium flex items-center transition-colors duration-300">
+                        View Details
+                        <ArrowRight className="ml-2" size={16} />
                       </button>
+                      <span className="text-xs text-gray-500">8 burst modules</span>
                     </div>
                   </div>
                 </div>
 
                 {/* AutoMet 300 Pro */}
-                <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white group">
-                  <div className="p-6 flex flex-col h-full">
-                    <h3 className="text-xl font-bold text-[#0f7db7] mb-6 text-center group-hover:text-[#4babe5] transition-colors duration-300">AutoMet® 300 Pro</h3>
-                    <div className="flex-grow flex flex-col items-center mb-6">
-                      <div className="relative overflow-hidden rounded-lg mb-6 group-hover:shadow-md transition-all duration-300">
-                        <img
-                          src="/api/placeholder/160/180"
-                          alt="AutoMet 300 Pro"
-                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                        This top of the line machine adds size and throughput in its 12" (300mm) platen making it perfect for high volume environments and larger sample sizes. Along with its programmable touch screen and ability to add burst dispensing modules to automate polishing steps, this machine includes unique features like depth grinding to further ensure accuracy.
-                      </p>
+                <div className="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                  <div className="relative h-60 overflow-hidden">
+                    <img
+                      src="/api/placeholder/160/180"
+                      alt="AutoMet 300 Pro"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  </div>
+
+                  <div className="p-6">
+                    <div className="flex justify-between items-start mb-4">
+                      <h3 className="text-xl font-bold text-[#0f7db7]">AutoMet® 300 Pro</h3>
+                      <span className="bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-2 py-1 rounded">12" Platen</span>
                     </div>
-                    <div className="mt-auto text-center">
-                      <button className="bg-[#0f7db7] hover:bg-[#4babe5] transition-all duration-300 text-white px-6 py-2 rounded-lg font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2">
-                        AutoMet 300 Pro Page
+
+                    <p className="text-gray-600 mb-6">
+                      Top of the line machine adds size and throughput in its 12" platen making it perfect for high volume environments.
+                    </p>
+
+                    <div className="flex justify-between items-center">
+                      <button className="text-[#0f7db7] hover:text-[#4babe5] font-medium flex items-center transition-colors duration-300">
+                        View Details
+                        <ArrowRight className="ml-2" size={16} />
                       </button>
+                      <span className="text-xs text-gray-500">Depth grinding</span>
                     </div>
                   </div>
                 </div>
@@ -465,68 +554,90 @@ export default function GrindingPolishingPage() {
             </div>
 
             {/* Specialty Machines Section */}
-            <div className="mb-24">
-              <h2 className="text-2xl md:text-3xl font-bold text-[#0f7db7] mb-6 border-b-4 border-[#0f7db7] pb-2 inline-block">
-                Specialty Grinding and Polishing Machines
-              </h2>
-              <p className="text-gray-700 mb-10 max-w-4xl leading-relaxed">
-                When a typical grinder polisher can't give you the flatness or surface finish you require or if you have extremely limited space or work in hot cells, our specialty solutions are the answer you need.
-              </p>
+            <div className="mb-28">
+              <div className="text-center mb-16">
+                <span className="inline-block bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
+                  Advanced Solutions
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold text-[#0f7db7] mb-4">
+                  Specialty Grinding and Polishing Machines
+                </h2>
+                <div className="max-w-3xl mx-auto">
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    When typical grinders can't meet your requirements for flatness or surface finish, our specialty solutions deliver exceptional results.
+                  </p>
+                </div>
+              </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* VibroMet 2 */}
-                <div className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 bg-white group">
-                  <div className="p-6 flex flex-col h-full">
-                    <h3 className="text-xl font-bold text-[#0f7db7] mb-6 text-center group-hover:text-[#4babe5] transition-colors duration-300">VibroMet® 2</h3>
-                    <div className="flex-grow flex flex-col items-center mb-6">
-                      <div className="relative overflow-hidden rounded-lg mb-6 group-hover:shadow-md transition-all duration-300">
-                        <img
-                          src="/api/placeholder/160/180"
-                          alt="VibroMet 2"
-                          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </div>
-                      <p className="text-gray-700 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                        Equipped with unique motor technology, the VibroMet 2 achieves the highest degree of surface quality possible for a mechanical polisher. Prepare samples for high magnification analysis by eliminating even the smallest imperfections. Choose the experts at Buehler, who created this technology.
-                      </p>
+                <div className="bg-gradient-to-br from-[#0f7db7]/5 to-white p-8 rounded-2xl shadow-lg flex flex-col md:flex-row gap-8 items-center transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                  <div className="md:w-1/3">
+                    <div className="relative overflow-hidden rounded-xl aspect-square">
+                      <img
+                        src="/api/placeholder/160/180"
+                        alt="VibroMet 2"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
-                    <div className="mt-auto text-center">
-                      <button className="bg-[#0f7db7] hover:bg-[#4babe5] transition-all duration-300 text-white px-6 py-2 rounded-lg font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2">
-                        VibroMet 2 Page
+                  </div>
+                  <div className="md:w-2/3">
+                    <h3 className="text-2xl font-bold text-[#0f7db7] mb-3">VibroMet® 2</h3>
+                    <p className="text-gray-600 mb-6">
+                      Equipped with unique motor technology, the VibroMet 2 achieves the highest degree of surface quality possible for a mechanical polisher.
+                    </p>
+                    <div className="flex flex-wrap gap-4">
+                      <button className="bg-[#0f7db7] hover:bg-[#4babe5] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md">
+                        Product Details
+                      </button>
+                      <button className="border border-[#0f7db7] text-[#0f7db7] hover:bg-[#0f7db7]/10 px-6 py-2 rounded-lg font-medium transition-all duration-300">
+                        Technical Specs
                       </button>
                     </div>
+                  </div>
+                </div>
+
+                {/* Add more specialty machines here with similar structure */}
+                <div className="bg-gradient-to-br from-[#0f7db7]/5 to-white p-8 rounded-2xl shadow-lg flex flex-col md:flex-row gap-8 items-center transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                  <div className="md:w-1/3">
+                    <div className="relative overflow-hidden rounded-xl aspect-square bg-gray-100 flex items-center justify-center">
+                      <FileText className="text-gray-400" size={48} />
+                    </div>
+                  </div>
+                  <div className="md:w-2/3">
+                    <h3 className="text-2xl font-bold text-[#0f7db7] mb-3">More Solutions</h3>
+                    <p className="text-gray-600 mb-6">
+                      Discover our full range of specialty solutions for unique sample preparation challenges.
+                    </p>
+                    <button className="bg-[#0f7db7] hover:bg-[#4babe5] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md">
+                      Explore All
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Lab Metallography Solutions Banner */}
-            <div className="bg-gray-50 rounded-lg shadow-sm mb-16 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-              <div className="flex flex-col md:flex-row items-center">
-                <div className="md:w-1/2 p-4">
-                  <div className="relative overflow-hidden rounded-md group">
-                    <img
-                      src="/productsListing/Find_Your_Solutions.png"
-                      alt="Lab expert"
-                      className="w-full shadow-md rounded-md transform group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  </div>
-                </div>
-                <div className="md:w-1/2 p-8">
-                  <p className="text-gray-600 mb-2 font-medium group-hover:text-gray-700 transition-colors duration-300">Find Your Solutions</p>
-                  <h1 className="text-3xl font-bold text-[#0f7db7] mb-4 border-b-4 border-[#0f7db7] pb-2 inline-block group-hover:text-[#4babe5] transition-colors duration-300">
-                    Full Lab<br />Metallography Solutions
-                  </h1>
-                  <p className="text-gray-700 mb-6 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                    Looking for more information from us? Browse through our Solutions section to view technical articles, find recommended processing methods, look at industry solutions, and more.
+            {/* Solutions Banner with Parallax Effect */}
+            <div className="relative mb-28 h-[500px] overflow-hidden rounded-2xl shadow-xl">
+              <div className="absolute inset-0 bg-[url('/productsListing/Find_Your_Solutions.png')] bg-cover bg-center transform group-hover:scale-105 transition-transform duration-1000"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30"></div>
+
+              <div className="relative h-full flex items-center">
+                <div className="container mx-auto px-8 text-white max-w-2xl">
+                  <span className="inline-block bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4 backdrop-blur-sm">
+                    Comprehensive Solutions
+                  </span>
+                  <h2 className="text-4xl font-bold mb-6">
+                    Full Lab Metallography Solutions
+                  </h2>
+                  <p className="text-lg mb-8 leading-relaxed">
+                    Looking for more information? Browse through our Solutions section to view technical articles, find recommended processing methods, and discover industry-specific solutions.
                   </p>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <button className="bg-[#0f7db7] hover:bg-[#4babe5] transition-all duration-300 text-white py-2 px-4 rounded-lg font-medium text-lg shadow-sm hover:shadow-md transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2">
+                  <div className="flex flex-wrap gap-4">
+                    <button className="bg-white text-[#0f7db7] hover:bg-gray-100 px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg">
                       Solutions by Industry
                     </button>
-                    <button className="bg-[#0f7db7] hover:bg-[#4babe5] transition-all duration-300 text-white py-2 px-4 rounded-lg font-medium text-lg shadow-sm hover:shadow-md transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2">
+                    <button className="border border-white text-white hover:bg-white/10 px-6 py-3 rounded-lg font-medium transition-all duration-300">
                       Solutions by Material
                     </button>
                   </div>
@@ -534,144 +645,161 @@ export default function GrindingPolishingPage() {
               </div>
             </div>
 
-            {/* Need Additional Help Section */}
-            <div className="py-16 mb-16 bg-[#0f7db7]/10 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-              <div className="text-center mb-10">
-                <h2 className="text-3xl font-bold text-[#0f7db7] mb-4 group-hover:text-[#4babe5] transition-colors duration-300">Need Additional Help?</h2>
-                <p className="text-gray-700 max-w-2xl mx-auto group-hover:text-gray-800 transition-colors duration-300">
-                  Do you want to improve your process? Reach out for one-on-one help from our applications experts.
-                </p>
+            {/* Help Section with Floating Cards */}
+            <div className="mb-28">
+              <div className="text-center mb-16">
+                <span className="inline-block bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
+                  We're Here to Help
+                </span>
+                <h2 className="text-3xl md:text-4xl font-bold text-[#0f7db7] mb-4">
+                  Need Additional Help?
+                </h2>
+                <div className="max-w-3xl mx-auto">
+                  <p className="text-gray-700 text-lg leading-relaxed">
+                    Do you want to improve your process? Reach out for one-on-one help from our applications experts.
+                  </p>
+                </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto px-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 {/* Contact Lab Team */}
-                <div className="flex flex-col items-center text-center bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-                  <div className="mb-6">
-                    <div className="w-24 h-24 relative flex items-center justify-center group">
-                      <img
-                        src="/productsListing/contact_lab_team.png"
-                        alt="Contact Lab Team"
-                        className="w-full h-full object-cover rounded-lg transform group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
+                <div className="bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                  <div className="h-48 bg-gradient-to-r from-[#0f7db7] to-[#4babe5] flex items-center justify-center">
+                    <img
+                      src="/productsListing/contact_lab_team.png"
+                      alt="Contact Lab Team"
+                      className="h-32 object-contain"
+                    />
                   </div>
-                  <h3 className="text-xl font-bold text-[#0f7db7] mb-4 group-hover:text-[#4babe5] transition-colors duration-300">Contact Lab Team</h3>
-                  <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300">Get expert advice on laboratory equipment setup and processes</p>
-                  <button className="bg-[#0f7db7] hover:bg-[#4babe5] transition-all duration-300 text-lg text-white px-6 py-2 rounded-lg font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2">
-                    Contact Lab
-                  </button>
+                  <div className="p-8">
+                    <h3 className="text-xl font-bold text-[#0f7db7] mb-4">Contact Lab Team</h3>
+                    <p className="text-gray-600 mb-6">
+                      Get expert advice on laboratory equipment setup and processes from our technical specialists.
+                    </p>
+                    <button className="bg-[#0f7db7] hover:bg-[#4babe5] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md w-full">
+                      Contact Lab Experts
+                    </button>
+                  </div>
                 </div>
 
                 {/* Contact Customer Care */}
-                <div className="flex flex-col items-center text-center bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-                  <div className="mb-6">
-                    <div className="w-24 h-24 relative flex items-center justify-center group">
-                      <img
-                        src="/productsListing/contact_customer_care.png"
-                        alt="Contact Customer Care"
-                        className="w-full h-full object-cover rounded-lg transform group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
+                <div className="bg-white rounded-2xl shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
+                  <div className="h-48 bg-gradient-to-r from-[#0f7db7] to-[#4babe5] flex items-center justify-center">
+                    <img
+                      src="/productsListing/contact_customer_care.png"
+                      alt="Contact Customer Care"
+                      className="h-32 object-contain"
+                    />
                   </div>
-                  <h3 className="text-xl font-bold text-[#0f7db7] mb-4 group-hover:text-[#4babe5] transition-colors duration-300">Contact Customer Care</h3>
-                  <p className="text-gray-600 mb-6 group-hover:text-gray-700 transition-colors duration-300">Questions about orders, shipping, or product availability</p>
-                  <button className="bg-[#0f7db7] hover:bg-[#4babe5] transition-all duration-300 text-lg text-white px-6 py-2 rounded-lg font-medium shadow-sm hover:shadow-md transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2">
-                    Contact Us
-                  </button>
+                  <div className="p-8">
+                    <h3 className="text-xl font-bold text-[#0f7db7] mb-4">Contact Customer Care</h3>
+                    <p className="text-gray-600 mb-6">
+                      Questions about orders, shipping, or product availability? Our support team is ready to assist.
+                    </p>
+                    <button className="bg-[#0f7db7] hover:bg-[#4babe5] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md w-full">
+                      Contact Support
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Quick Links Section */}
-            <div className="py-16 bg-gray-50 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 transform hover:-translate-y-1">
-              <div className="max-w-6xl mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-                  {/* Quick Links Left Column */}
-                  <div>
-                    <h2 className="text-3xl font-bold text-[#0f7db7] mb-4 group-hover:text-[#4babe5] transition-colors duration-300">Quick Links</h2>
-                    <p className="text-gray-700 mb-3 group-hover:text-gray-800 transition-colors duration-300">
-                      Quickly access important info or visit our <a href="#" className="text-[#0f7db7] hover:text-[#4babe5] transition-colors duration-300 font-medium">E-Shop</a>
-                    </p>
-                    <div className="w-24 h-1 bg-[#0f7db7] mt-8 group-hover:bg-[#4babe5] transition-colors duration-300"></div>
-                  </div>
+            {/* Enhanced Quick Links Section */}
+            <div className="py-16 bg-gradient-to-br from-[#0f7db7]/5 to-white">
+              <div className="container mx-auto px-4">
+                <div className="text-center mb-16">
+                  <span className="inline-block bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
+                    Quick Access
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-bold text-[#0f7db7] mb-4">
+                    Explore Our Resources
+                  </h2>
+                  <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+                    Quickly access important information and resources for your laboratory needs.
+                  </p>
+                </div>
 
-                  {/* Center Column */}
-                  <div className="space-y-12">
-                    {/* Product Catalog */}
-                    <div className="flex items-start space-x-6 hover:bg-white p-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1">
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 flex items-center justify-center bg-white border border-[#0f7db7]/20 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
-                          <FileText className="text-[#0f7db7] group-hover:text-[#4babe5] transition-colors duration-300" size={28} />
-                        </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                  {/* Product Catalog */}
+                  <div className="group relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                    <div className="absolute inset-0 bg-[#0f7db7] opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+                    <div className="p-8 flex flex-col items-center text-center">
+                      <div className="w-20 h-20 bg-[#0f7db7]/10 text-[#0f7db7] rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:bg-[#0f7db7] group-hover:text-white">
+                        <FileText size={28} className="transition-all duration-500" />
                       </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-[#0f7db7] mb-2 group-hover:text-[#4babe5] transition-colors duration-300">Product Catalog</h3>
-                        <p className="text-sm text-gray-700 mb-4 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                          View all Products in the Buehler Product Catalog
-                        </p>
-                        <button className="bg-[#0f7db7] hover:bg-[#4babe5] transition-all duration-300 text-white px-4 py-2 rounded-lg font-medium text-sm shadow-sm hover:shadow-md transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2">
-                          Product Catalog
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Methods by Material */}
-                    <div className="flex items-start space-x-6 hover:bg-white p-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1">
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 flex items-center justify-center bg-white border border-[#0f7db7]/20 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
-                          <FlaskConical className="text-[#0f7db7] group-hover:text-[#4babe5] transition-colors duration-300" size={28} />
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-[#0f7db7] mb-2 group-hover:text-[#4babe5] transition-colors duration-300">Methods by Material</h3>
-                        <p className="text-sm text-gray-700 mb-4 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                          Select a method by material
-                        </p>
-                        <button className="bg-[#0f7db7] hover:bg-[#4babe5] transition-all duration-300 text-white px-4 py-2 rounded-lg font-medium text-sm shadow-sm hover:shadow-md transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2">
-                          Buehler Methods
-                        </button>
-                      </div>
+                      <h3 className="text-xl font-bold text-gray-800 mb-3">Product Catalog</h3>
+                      <p className="text-gray-600 mb-6">
+                        View all products in our comprehensive catalog with detailed specifications.
+                      </p>
+                      <button className="inline-flex items-center text-[#0f7db7] font-medium group-hover:text-[#4babe5] transition-colors duration-300">
+                        Browse Catalog
+                        <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      </button>
                     </div>
                   </div>
 
-                  {/* Right Column */}
-                  <div className="space-y-12">
-                    {/* SDS */}
-                    <div className="flex items-start space-x-6 hover:bg-white p-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1">
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 flex items-center justify-center bg-white border border-[#0f7db7]/20 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
-                          <Download className="text-[#0f7db7] group-hover:text-[#4babe5] transition-colors duration-300" size={28} />
-                        </div>
+                  {/* Methods by Material */}
+                  <div className="group relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                    <div className="absolute inset-0 bg-[#0f7db7] opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+                    <div className="p-8 flex flex-col items-center text-center">
+                      <div className="w-20 h-20 bg-[#0f7db7]/10 text-[#0f7db7] rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:bg-[#0f7db7] group-hover:text-white">
+                        <FlaskConical size={28} className="transition-all duration-500" />
                       </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-[#0f7db7] mb-2 group-hover:text-[#4babe5] transition-colors duration-300">SDS</h3>
-                        <p className="text-sm text-gray-700 mb-4 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                          Search Buehler's Safety Data Sheets
-                        </p>
-                        <button className="bg-[#0f7db7] hover:bg-[#4babe5] transition-all duration-300 text-white px-4 py-2 rounded-lg font-medium text-sm shadow-sm hover:shadow-md transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2">
-                          Safety Data Sheets
-                        </button>
-                      </div>
-                    </div>
-
-                    {/* Product Literature */}
-                    <div className="flex items-start space-x-6 hover:bg-white p-4 rounded-lg transition-all duration-300 transform hover:-translate-y-1">
-                      <div className="flex-shrink-0">
-                        <div className="w-16 h-16 flex items-center justify-center bg-white border border-[#0f7db7]/20 rounded-lg shadow-sm group-hover:shadow-md transition-all duration-300">
-                          <BookOpen className="text-[#0f7db7] group-hover:text-[#4babe5] transition-colors duration-300" size={28} />
-                        </div>
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-[#0f7db7] mb-2 group-hover:text-[#4babe5] transition-colors duration-300">Product Literature</h3>
-                        <p className="text-sm text-gray-700 mb-4 leading-relaxed group-hover:text-gray-800 transition-colors duration-300">
-                          Browse and search Buehler's product literature
-                        </p>
-                        <button className="bg-[#0f7db7] hover:bg-[#4babe5] transition-all duration-300 text-white px-4 py-2 rounded-lg font-medium text-sm shadow-sm hover:shadow-md transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#0f7db7] focus:ring-offset-2">
-                          Product Literature
-                        </button>
-                      </div>
+                      <h3 className="text-xl font-bold text-gray-800 mb-3">Methods by Material</h3>
+                      <p className="text-gray-600 mb-6">
+                        Find optimized preparation methods for your specific material types.
+                      </p>
+                      <button className="inline-flex items-center text-[#0f7db7] font-medium group-hover:text-[#4babe5] transition-colors duration-300">
+                        View Methods
+                        <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      </button>
                     </div>
                   </div>
+
+                  {/* Safety Data Sheets */}
+                  <div className="group relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                    <div className="absolute inset-0 bg-[#0f7db7] opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+                    <div className="p-8 flex flex-col items-center text-center">
+                      <div className="w-20 h-20 bg-[#0f7db7]/10 text-[#0f7db7] rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:bg-[#0f7db7] group-hover:text-white">
+                        <Download size={28} className="transition-all duration-500" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-800 mb-3">Safety Data Sheets</h3>
+                      <p className="text-gray-600 mb-6">
+                        Access all safety documentation for our products and chemicals.
+                      </p>
+                      <button className="inline-flex items-center text-[#0f7db7] font-medium group-hover:text-[#4babe5] transition-colors duration-300">
+                        Search SDS
+                        <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Product Literature */}
+                  <div className="group relative bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2">
+                    <div className="absolute inset-0 bg-[#0f7db7] opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+                    <div className="p-8 flex flex-col items-center text-center">
+                      <div className="w-20 h-20 bg-[#0f7db7]/10 text-[#0f7db7] rounded-2xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:bg-[#0f7db7] group-hover:text-white">
+                        <BookOpen size={28} className="transition-all duration-500" />
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-800 mb-3">Product Literature</h3>
+                      <p className="text-gray-600 mb-6">
+                        Download brochures, manuals, and technical documents.
+                      </p>
+                      <button className="inline-flex items-center text-[#0f7db7] font-medium group-hover:text-[#4babe5] transition-colors duration-300">
+                        View Resources
+                        <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Additional CTA */}
+                <div className="mt-16 text-center">
+                  <p className="text-gray-600 mb-6">Looking for something else?</p>
+                  <button className="bg-[#0f7db7] hover:bg-[#4babe5] text-white px-8 py-3 rounded-lg font-medium shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center">
+                    Contact Our Support Team
+                    <MessageSquareText className="ml-2" size={18} />
+                  </button>
                 </div>
               </div>
             </div>

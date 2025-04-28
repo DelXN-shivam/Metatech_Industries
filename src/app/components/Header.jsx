@@ -179,9 +179,9 @@ const Header = () => {
                                                 {/* Categories Section */}
                                                 <div className="w-2/3">
                                                     <h3 className="text-lg font-semibold text-blue-800 mb-2">Categories</h3>
-                                                    <div className="grid grid-cols-2 gap-4">
+                                                    <div className="grid grid-cols-2 gap-4 bg-blue-50 p-4 rounded-lg">
                                                         {categories.map((category, index) => (
-                                                            <div key={index} className="p-3 border rounded-lg">
+                                                            <div key={index} className="p-3 border rounded-lg bg-white">
                                                                 <button
                                                                     onClick={() => router.push(`/productlisting/${category.title}`)}
                                                                     className={`font-semibold flex items-center gap-2 cursor-pointer ${activeCategory === category.title ? 'text-blue-800' : 'text-blue-600 hover:text-blue-800'}`}
@@ -249,7 +249,7 @@ const Header = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="#" className="text-white hover:text-purple-700 hover:text-2xl text-lg font-semibold">
+                                <a href="#" className="text-white hover:underline hover:text-blue-700 text-lg font-semibold">
                                     Login
                                 </a>
                             </li>
