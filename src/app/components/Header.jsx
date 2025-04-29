@@ -15,7 +15,7 @@ const Header = () => {
     const categories = [
         {
             title: "Automatic Cutting Machines",
-            route: "/productDetails",
+            route: "/categories/automatic-cutting-machines",
             items: [
                 "Automatic Cutting Machines - Auto Cut",
                 "Automatic Cutting Machines - Auto S",
@@ -28,7 +28,7 @@ const Header = () => {
         },
         {
             title: "Diamond Cutting Machines",
-            route: "/automatic-cutting-machines",
+            route: "/categories/diamond-cutting-machines",
             items: [
                 "DPCM",
                 "Hi Speed DCM",
@@ -38,7 +38,7 @@ const Header = () => {
         },
         {
             title: "Grinding Machines",
-            route: "/automatic-cutting-machines",
+            route: "/categories/grinding-machines",
             items: [
                 "Metapol DC II",
                 "Semi-Automatic Grinding Polishing",
@@ -51,7 +51,7 @@ const Header = () => {
         },
         {
             title: "Hardness Tester",
-            route: "/automatic-cutting-machines",
+            route: "/categories/hardness-tester",
             items: [
                 "Portable Vickers Hardness Tester",
                 "Portable Brinell Hardness Tester",
@@ -63,7 +63,7 @@ const Header = () => {
         },
         {
             title: "Microscope and Image Analyzer",
-            route: "/automatic-cutting-machines",
+            route: "/categories/microscope-and-image-analyzer",
             items: [
                 "Inverted Microscope",
                 "Inverted Microscope - Metagraph",
@@ -75,7 +75,7 @@ const Header = () => {
         },
         {
             title: "Moulding Machines",
-            route: "/automatic-cutting-machines",
+            route: "/categories/moulding-machines",
             items: [
                 "Moulding Machine - Automount E",
                 "Electro Hydraulic Press - Automount EH",
@@ -89,7 +89,7 @@ const Header = () => {
     const consumables = [
         {
             title: "Cutting Machine Consumables",
-            route: "/consumables/cutting",
+            route: "/consumables/cutting-machine-consumables",
             items: [
                 "Diamond Cutting Blades",
                 "Abrasive Cutting Wheels",
@@ -100,7 +100,7 @@ const Header = () => {
         },
         {
             title: "Grinding Machine Consumables",
-            route: "/consumables/grinding",
+            route: "/consumables/grinding-machine-consumables",
             items: [
                 "Grinding Wheels",
                 "Silicon Carbide Grinding Papers",
@@ -111,7 +111,7 @@ const Header = () => {
         },
         {
             title: "Polishing Consumables",
-            route: "/consumables/polishing",
+            route: "/consumables/polishing-consumables",
             items: [
                 "Polishing Pads",
                 "Diamond Paste",
@@ -122,7 +122,7 @@ const Header = () => {
         },
         {
             title: "Mounting Consumables",
-            route: "/consumables/mounting",
+            route: "/consumables/mounting-consumables",
             items: [
                 "Mounting Resin",
                 "Epoxy Compounds",
@@ -183,7 +183,7 @@ const Header = () => {
                                                         {categories.map((category, index) => (
                                                             <div key={index} className="p-3 border rounded-lg bg-white">
                                                                 <button
-                                                                    onClick={() => router.push(`/productlisting/${category.title}`)}
+                                                                    onClick={() => router.push(`${category.route}`)}
                                                                     className={`font-semibold flex items-center gap-2 cursor-pointer ${activeCategory === category.title ? 'text-blue-800' : 'text-blue-600 hover:text-blue-800'}`}
                                                                 >
                                                                     <FaTools /> {category.title}
@@ -194,6 +194,9 @@ const Header = () => {
                                                                             <Link href={`/product/${item.toLowerCase().replace(/\s+/g, '-')}`} className="hover:text-blue-500">
                                                                                 ⚙ {item}
                                                                             </Link>
+                                                                            {/* <Link href={`/product/${item.toLowerCase().replace(/\s+/g, '-')}`} className="hover:text-blue-500">
+                                                                                ⚙ {item}
+                                                                            </Link> */}
                                                                         </li>
                                                                     ))}
                                                                 </ul>

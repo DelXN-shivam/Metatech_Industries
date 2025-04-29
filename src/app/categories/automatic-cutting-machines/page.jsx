@@ -19,22 +19,32 @@ export default function GrindingPolishingPage() {
     const slides = [
         {
             id: 1,
-            image: "/productsListing/AutoMet-300.png",
-            alt: "Buehler Grinding Machine",
-            category: "Metallography",
-            title: "AutoMet Pro Grinder",
-            description: "Precision grinding machine with automatic pressure control for consistent surface preparation across all specimens.",
-            reviews: 42,
-            rating: 4.5
+            image: "/productsListing/auto-cut.png",
+            alt: "Automatic Cutting Machine - Auto Cut",
+            category: "Cutting Machines",
+            title: "Automatic Cutting Machine - Auto Cut",
+            description: "Fully automatic cutting machine designed for high precision and repeatability in material sectioning.",
+            reviews: 38,
+            rating: 4.6
         },
         {
             id: 2,
-            image: "/productsListing/AutoMet-300.png",
-            alt: "Buehler Polishing System",
-            category: "Metallography",
-            title: "EcoMet 300 Pro",
-            description: "Advanced polishing system with variable speed control and splash guard for optimal specimen finishing.",
-            reviews: 36,
+            image: "/productsListing/auto-s.png",
+            alt: "Automatic Cutting Machine - Auto S",
+            category: "Cutting Machines",
+            title: "Automatic Cutting Machine - Auto S",
+            description: "Semi-automatic cutting system with intelligent feed control for optimal cutting performance and safety.",
+            reviews: 35,
+            rating: 4.4
+        },
+        {
+            id: 3,
+            image: "/productsListing/metacut.png",
+            alt: "Automatic Cutting Machine - MetaCut",
+            category: "Cutting Machines",
+            title: "Automatic Cutting Machine - MetaCut",
+            description: "High-performance automatic cutting solution ideal for laboratory environments requiring precision and consistency.",
+            reviews: 40,
             rating: 4.7
         }
     ];
@@ -109,6 +119,7 @@ export default function GrindingPolishingPage() {
         {
             id: 1,
             name: "Automatic Cutting Machines",
+            color: "[#0f7db7]/10",
             subItems: [
                 { name: "Automatic Cutting Machines - Auto Cut", apiCall: "/api/automatic-cutting/auto-cut" },
                 { name: "Automatic Cutting Machines - Auto-S", apiCall: "/api/automatic-cutting/auto-s" },
@@ -179,6 +190,98 @@ export default function GrindingPolishingPage() {
         }
     ];
 
+    const productCards = [
+        {
+            id: 1,
+            name: "Auto Cut",
+            tag: "Fully Automatic",
+            description: "Fully automatic cutting machine designed for high precision and repeatability in material sectioning.",
+            image: "/productsListing/auto-cut.png",
+            detail: "High throughput",
+            delay: 0.1
+        },
+        {
+            id: 2,
+            name: "Auto S",
+            tag: "Semi-Automatic",
+            description: "Semi-automatic cutting system with intelligent feed control for optimal cutting performance and safety.",
+            image: "/productsListing/auto-s.png",
+            detail: "Manual override",
+            delay: 0.2
+        },
+        {
+            id: 3,
+            name: "MetaCut",
+            tag: "Laboratory Grade",
+            description: "High-performance automatic cutting solution ideal for laboratory environments requiring precision and consistency.",
+            image: "/productsListing/metacut.png",
+            detail: "Ideal for R&D",
+            delay: 0.3
+        },
+        {
+            id: 4,
+            name: "Oscillating Abrasive Cut-off",
+            tag: "Hard Material",
+            description: "Designed for fast and precise cutting of hard materials using oscillating abrasive blades for minimal burring.",
+            image: "/productsListing/oscillating-abrasive.png",
+            detail: "Low burring",
+            delay: 0.4
+        },
+        {
+            id: 5,
+            name: "MetaCut-I",
+            tag: "Entry-level",
+            description: "Entry-level automatic cutting machine offering consistent results for routine cutting tasks in industrial labs.",
+            image: "/productsListing/metacut-i.png",
+            detail: "Cost-effective",
+            delay: 0.5
+        },
+        {
+            id: 6,
+            name: "Tube Cutting Machine",
+            tag: "Specialized",
+            description: "Specialized cutting equipment for tubes and cylindrical specimens ensuring clean cuts without deformation.",
+            image: "/productsListing/tube-cutting-machine.png",
+            detail: "Tubular parts",
+            delay: 0.6
+        },
+        {
+            id: 7,
+            name: "High-Precision Servo Cut",
+            tag: "Servo-Controlled",
+            description: "Servo-controlled cutting system offering unmatched accuracy and smooth motion control for critical applications.",
+            image: "/productsListing/servo-cut.png",
+            detail: "Critical tolerance",
+            delay: 0.7
+        }
+    ];
+
+    const specialtyProducts = [
+        {
+            id: 1,
+            name: "VibroMet® 2",
+            description: "Equipped with unique motor technology, the VibroMet 2 achieves the highest degree of surface quality possible for a mechanical polisher.",
+            image: "/api/placeholder/160/180",
+            delay: 0.1,
+            animationX: -50,
+            buttons: [
+                { text: "Product Details", variant: "primary" },
+                { text: "Technical Specs", variant: "secondary" }
+            ]
+        },
+        {
+            id: 2,
+            name: "More Solutions",
+            description: "Discover our full range of specialty solutions for unique sample preparation challenges.",
+            image: null, // Will use icon instead
+            delay: 0.2,
+            animationX: 50,
+            buttons: [
+                { text: "Explore All", variant: "primary" }
+            ]
+        }
+    ];
+
     const toggleSublist = (index) => {
         setOpenIndex(openIndex === index ? null : index);
     };
@@ -210,10 +313,7 @@ export default function GrindingPolishingPage() {
                                     transition={{ delay: index * 0.05, duration: 0.5 }}
                                 >
                                     <button
-                                        className="w-full text-left p-4 rounded-xl transition-all duration-300 
-            hover:bg-[#0f7db7]/10 text-gray-700 hover:text-[#0f7db7] font-medium
-            flex items-center justify-between group-hover:translate-x-1
-            border border-transparent hover:border-[#0f7db7]/20"
+                                        className={`w-full text-left p-4 rounded-xl transition-all duration-300 bg-${item.color} text-gray-700 font-medium flex items-center justify-between group-hover:translate-x-1 border border-transparent border-${item.color}`}
                                         onClick={() => toggleSublist(index)}
                                     >
                                         <div className="flex items-center">
@@ -277,7 +377,7 @@ export default function GrindingPolishingPage() {
                                                     />
                                                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                                                 </div>
-                                                <h3 className="text-lg font-semibold text-gray-800 group-hover:text-[#0f7db7] transition-colors duration-300">{product.name}</h3>
+                                                <h3 className="px-3 text-lg font-semibold text-gray-800 group-hover:text-[#0f7db7] transition-colors duration-300">{product.name}</h3>
                                             </div>
                                         </div>
                                     ))}
@@ -307,7 +407,7 @@ export default function GrindingPolishingPage() {
                             </div>
                         </motion.div>
 
-                        {/* Modern Intro Section with Stacked Card Design - Positions Switched */}
+                        {/* Modern Intro Section with Stacked Card Design */}
                         <motion.div
                             className="mb-24"
                             initial={{ opacity: 0 }}
@@ -439,7 +539,7 @@ export default function GrindingPolishingPage() {
                                     transition={{ duration: 0.6, delay: 0.4 }}
                                 >
                                     <span className="inline-block bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider mb-4">
-                                        Browse our solutions
+                                        Browse our cutting solutions
                                     </span>
                                     <motion.h2
                                         className="text-3xl md:text-4xl font-bold text-[#0f7db7] mb-6 relative pb-3"
@@ -448,7 +548,7 @@ export default function GrindingPolishingPage() {
                                         viewport={{ once: true }}
                                         transition={{ delay: 0.5, duration: 0.6 }}
                                     >
-                                        Grinding and Polishing Made Simple
+                                        Precision Cutting for Every Application
                                     </motion.h2>
                                     <motion.p
                                         className="text-gray-700 mb-8 leading-relaxed text-lg"
@@ -457,7 +557,7 @@ export default function GrindingPolishingPage() {
                                         viewport={{ once: true }}
                                         transition={{ delay: 0.6, duration: 0.6 }}
                                     >
-                                        The most important step in the preparation of a good sample is a specialty at Buehler. Choose between our various grinding and polishing equipment for the application right for your laboratory.
+                                        Our Automatic Cutting Machines deliver high precision and efficiency for diverse industrial and laboratory applications. From Auto Cut and MetaCut systems to oscillating abrasive and tube-cutting machines, find the ideal solution for your sample preparation needs.
                                     </motion.p>
                                     <div className="flex flex-wrap gap-4">
                                         <motion.button
@@ -469,9 +569,10 @@ export default function GrindingPolishingPage() {
                                             viewport={{ once: true }}
                                             transition={{ delay: 0.7, duration: 0.5 }}
                                         >
-                                            Explore Products
+                                            Explore Cutting Machines
                                         </motion.button>
                                         <motion.button
+                                            onClick={() => router.push('/contact')}
                                             className="border border-[#0f7db7] text-[#0f7db7] hover:bg-[#0f7db7]/10 px-6 py-3 rounded-lg font-medium transition-all duration-300"
                                             whileHover={{ scale: 1.05 }}
                                             whileTap={{ scale: 0.95 }}
@@ -487,7 +588,6 @@ export default function GrindingPolishingPage() {
                             </div>
                         </motion.div>
 
-                        {/* Semi-Automatic Section with Card Grid */}
                         {/* Semi-Automatic Section with Card Grid */}
                         <motion.div
                             className="mb-28"
@@ -530,135 +630,54 @@ export default function GrindingPolishingPage() {
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                {/* AutoMet 250 */}
-                                <motion.div
-                                    className="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: 0.1 }}
-                                    whileHover={{ y: -10 }}
-                                >
-                                    <div className="relative h-60 overflow-hidden">
-                                        <motion.img
-                                            src="/productsListing/AutoMet-300.png"
-                                            alt="AutoMet 250"
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                            whileHover={{ scale: 1.1 }}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    </div>
-
-                                    <div className="p-6">
-                                        <div className="flex justify-between items-start mb-4">
-                                            <h3 className="text-xl font-bold text-[#0f7db7]">AutoMet® 250</h3>
-                                            <span className="bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-2 py-1 rounded">10" Platen</span>
+                                {productCards.map((product) => (
+                                    <motion.div
+                                        key={product.id}
+                                        className="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
+                                        initial={{ opacity: 0, y: 50 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.6, delay: product.delay }}
+                                        whileHover={{ y: -10 }}
+                                    >
+                                        <div className="relative h-60 overflow-hidden">
+                                            <motion.img
+                                                src={product.image}
+                                                alt={product.name}
+                                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                                whileHover={{ scale: 1.1 }}
+                                            />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                         </div>
 
-                                        <p className="text-gray-600 mb-6">
-                                            Designed for medium to high volume environments, this versatile grinder polisher comes with a membrane control panel.
-                                        </p>
+                                        <div className="p-6">
+                                            <div className="flex justify-between items-start mb-4">
+                                                <h3 className="text-xl font-bold text-[#0f7db7]">{product.name}</h3>
+                                                <span className="bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-2 py-1 rounded">
+                                                    {product.tag}
+                                                </span>
+                                            </div>
 
-                                        <div className="flex justify-between items-center">
-                                            <motion.button
-                                                className="text-[#0f7db7] hover:text-[#4babe5] font-medium flex items-center transition-colors duration-300"
-                                                whileHover={{ x: 5 }}
-                                            >
-                                                View Details
-                                                <ArrowRight className="ml-2" size={16} />
-                                            </motion.button>
-                                            <span className="text-xs text-gray-500">6 burst modules</span>
+                                            <p className="text-gray-600 mb-6">
+                                                {product.description}
+                                            </p>
+
+                                            <div className="flex justify-between items-center">
+                                                <motion.button
+                                                    className="text-[#0f7db7] hover:text-[#4babe5] font-medium flex items-center transition-colors duration-300"
+                                                    whileHover={{ x: 5 }}
+                                                >
+                                                    View Details
+                                                    <ArrowRight className="ml-2" size={16} />
+                                                </motion.button>
+                                                <span className="text-xs text-gray-500">{product.detail}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </motion.div>
-
-                                {/* AutoMet 250 Pro */}
-                                <motion.div
-                                    className="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: 0.2 }}
-                                    whileHover={{ y: -10 }}
-                                >
-                                    <div className="relative h-60 overflow-hidden">
-                                        <motion.img
-                                            src="/api/placeholder/160/180"
-                                            alt="AutoMet 250 Pro"
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                            whileHover={{ scale: 1.1 }}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    </div>
-
-                                    <div className="p-6">
-                                        <div className="flex justify-between items-start mb-4">
-                                            <h3 className="text-xl font-bold text-[#0f7db7]">AutoMet® 250 Pro</h3>
-                                            <span className="bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-2 py-1 rounded">Touch Screen</span>
-                                        </div>
-
-                                        <p className="text-gray-600 mb-6">
-                                            Features an intuitive touch screen interface. Program every step of the process to achieve unparalleled accuracy.
-                                        </p>
-
-                                        <div className="flex justify-between items-center">
-                                            <motion.button
-                                                className="text-[#0f7db7] hover:text-[#4babe5] font-medium flex items-center transition-colors duration-300"
-                                                whileHover={{ x: 5 }}
-                                            >
-                                                View Details
-                                                <ArrowRight className="ml-2" size={16} />
-                                            </motion.button>
-                                            <span className="text-xs text-gray-500">8 burst modules</span>
-                                        </div>
-                                    </div>
-                                </motion.div>
-
-                                {/* AutoMet 300 Pro */}
-                                <motion.div
-                                    className="group relative bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
-                                    initial={{ opacity: 0, y: 50 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: 0.3 }}
-                                    whileHover={{ y: -10 }}
-                                >
-                                    <div className="relative h-60 overflow-hidden">
-                                        <motion.img
-                                            src="/api/placeholder/160/180"
-                                            alt="AutoMet 300 Pro"
-                                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                                            whileHover={{ scale: 1.1 }}
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    </div>
-
-                                    <div className="p-6">
-                                        <div className="flex justify-between items-start mb-4">
-                                            <h3 className="text-xl font-bold text-[#0f7db7]">AutoMet® 300 Pro</h3>
-                                            <span className="bg-[#0f7db7]/10 text-[#0f7db7] text-xs font-semibold px-2 py-1 rounded">12" Platen</span>
-                                        </div>
-
-                                        <p className="text-gray-600 mb-6">
-                                            Top of the line machine adds size and throughput in its 12" platen making it perfect for high volume environments.
-                                        </p>
-
-                                        <div className="flex justify-between items-center">
-                                            <motion.button
-                                                className="text-[#0f7db7] hover:text-[#4babe5] font-medium flex items-center transition-colors duration-300"
-                                                whileHover={{ x: 5 }}
-                                            >
-                                                View Details
-                                                <ArrowRight className="ml-2" size={16} />
-                                            </motion.button>
-                                            <span className="text-xs text-gray-500">Depth grinding</span>
-                                        </div>
-                                    </div>
-                                </motion.div>
+                                    </motion.div>
+                                ))}
                             </div>
                         </motion.div>
 
-                        {/* Specialty Machines Section */}
                         {/* Specialty Machines Section */}
                         <motion.div
                             className="mb-28"
@@ -679,7 +698,7 @@ export default function GrindingPolishingPage() {
                                 </motion.span>
                                 <motion.h2
                                     className="text-3xl md:text-4xl font-bold text-[#0f7db7] mb-4"
-                                    initial={{ opacity: 0, y: -20 }}
+                                    initial={{ opacity: 0, y: 10 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: 0.1 }}
@@ -700,84 +719,54 @@ export default function GrindingPolishingPage() {
                             </div>
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                                {/* VibroMet 2 */}
-                                <motion.div
-                                    className="bg-gradient-to-br from-[#0f7db7]/5 to-white p-8 rounded-2xl shadow-lg flex flex-col md:flex-row gap-8 items-center transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
-                                    initial={{ opacity: 0, x: -50 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: 0.1 }}
-                                    whileHover={{ y: -10 }}
-                                >
-                                    <div className="md:w-1/3">
-                                        <motion.div
-                                            className="relative overflow-hidden rounded-xl aspect-square"
-                                            whileHover={{ scale: 1.05 }}
-                                            transition={{ type: "spring", stiffness: 300 }}
-                                        >
-                                            <img
-                                                src="/api/placeholder/160/180"
-                                                alt="VibroMet 2"
-                                                className="w-full h-full object-cover"
-                                            />
-                                        </motion.div>
-                                    </div>
-                                    <div className="md:w-2/3">
-                                        <h3 className="text-2xl font-bold text-[#0f7db7] mb-3">VibroMet® 2</h3>
-                                        <p className="text-gray-600 mb-6">
-                                            Equipped with unique motor technology, the VibroMet 2 achieves the highest degree of surface quality possible for a mechanical polisher.
-                                        </p>
-                                        <div className="flex flex-wrap gap-4">
-                                            <motion.button
-                                                className="bg-[#0f7db7] hover:bg-[#4babe5] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md"
+                                {specialtyProducts.map((product) => (
+                                    <motion.div
+                                        key={product.id}
+                                        className="bg-gradient-to-br from-[#0f7db7]/5 to-white p-8 rounded-2xl shadow-lg flex flex-col md:flex-row gap-8 items-center transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
+                                        initial={{ opacity: 0, x: product.animationX }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ duration: 0.6, delay: product.delay }}
+                                        whileHover={{ y: -10 }}
+                                    >
+                                        <div className="md:w-1/3">
+                                            <motion.div
+                                                className="relative overflow-hidden rounded-xl aspect-square bg-gray-100 flex items-center justify-center"
                                                 whileHover={{ scale: 1.05 }}
-                                                whileTap={{ scale: 0.95 }}
+                                                transition={{ type: "spring", stiffness: 300 }}
                                             >
-                                                Product Details
-                                            </motion.button>
-                                            <motion.button
-                                                className="border border-[#0f7db7] text-[#0f7db7] hover:bg-[#0f7db7]/10 px-6 py-2 rounded-lg font-medium transition-all duration-300"
-                                                whileHover={{ scale: 1.05 }}
-                                                whileTap={{ scale: 0.95 }}
-                                            >
-                                                Technical Specs
-                                            </motion.button>
+                                                {product.image ? (
+                                                    <img
+                                                        src={product.image}
+                                                        alt={product.name}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                ) : (
+                                                    <FileText className="text-gray-400" size={48} />
+                                                )}
+                                            </motion.div>
                                         </div>
-                                    </div>
-                                </motion.div>
-
-                                {/* Add more specialty machines here with similar structure */}
-                                <motion.div
-                                    className="bg-gradient-to-br from-[#0f7db7]/5 to-white p-8 rounded-2xl shadow-lg flex flex-col md:flex-row gap-8 items-center transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
-                                    initial={{ opacity: 0, x: 50 }}
-                                    whileInView={{ opacity: 1, x: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.6, delay: 0.2 }}
-                                    whileHover={{ y: -10 }}
-                                >
-                                    <div className="md:w-1/3">
-                                        <motion.div
-                                            className="relative overflow-hidden rounded-xl aspect-square bg-gray-100 flex items-center justify-center"
-                                            whileHover={{ scale: 1.05 }}
-                                            transition={{ type: "spring", stiffness: 300 }}
-                                        >
-                                            <FileText className="text-gray-400" size={48} />
-                                        </motion.div>
-                                    </div>
-                                    <div className="md:w-2/3">
-                                        <h3 className="text-2xl font-bold text-[#0f7db7] mb-3">More Solutions</h3>
-                                        <p className="text-gray-600 mb-6">
-                                            Discover our full range of specialty solutions for unique sample preparation challenges.
-                                        </p>
-                                        <motion.button
-                                            className="bg-[#0f7db7] hover:bg-[#4babe5] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md"
-                                            whileHover={{ scale: 1.05 }}
-                                            whileTap={{ scale: 0.95 }}
-                                        >
-                                            Explore All
-                                        </motion.button>
-                                    </div>
-                                </motion.div>
+                                        <div className="md:w-2/3">
+                                            <h3 className="text-2xl font-bold text-[#0f7db7] mb-3">{product.name}</h3>
+                                            <p className="text-gray-600 mb-6">{product.description}</p>
+                                            <div className="flex flex-wrap gap-4">
+                                                {product.buttons.map((button, index) => (
+                                                    <motion.button
+                                                        key={index}
+                                                        className={`${button.variant === 'primary'
+                                                            ? 'bg-[#0f7db7] hover:bg-[#4babe5] text-white'
+                                                            : 'border border-[#0f7db7] text-[#0f7db7] hover:bg-[#0f7db7]/10'} 
+                  px-6 py-2 rounded-lg font-medium transition-all duration-300 hover:shadow-md`}
+                                                        whileHover={{ scale: 1.05 }}
+                                                        whileTap={{ scale: 0.95 }}
+                                                    >
+                                                        {button.text}
+                                                    </motion.button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                ))}
                             </div>
                         </motion.div>
 

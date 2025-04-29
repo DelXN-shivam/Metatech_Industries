@@ -2,9 +2,8 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, ChevronRight, Phone, Mail, FileText, BookOpen, FlaskConical, Download, ArrowRight, MessageSquareText } from 'lucide-react';
+import { ChevronLeft, ChevronRight, FileText, BookOpen, FlaskConical, Download, ArrowRight, MessageSquareText } from 'lucide-react';
 import { IoIosArrowForward } from 'react-icons/io';
-import { useRouter } from 'next/navigation';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 import { motion } from 'framer-motion';
@@ -107,6 +106,7 @@ export default function GrindingPolishingPage() {
     {
       id: 1,
       name: "Automatic Cutting Machines",
+      path: "/categories/automatic-cutting-machines",
       subItems: [
         { name: "Automatic Cutting Machines - Auto Cut", apiCall: "/api/automatic-cutting/auto-cut" },
         { name: "Automatic Cutting Machines - Auto-S", apiCall: "/api/automatic-cutting/auto-s" },
